@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../50-resources"
+		},
+		{
+			"path": "../40-personal"
+		},
+		{
+			"path": "../30-knowledge"
+		},
+		{
+			"path": "../20-operations"
+		},
+		{
+			"path": "../10-projects"
+		},
+		{
+			"path": "../00-system"
+		},
+		{
+			"path": "../00-inbox"
+		}
+	]
+}
