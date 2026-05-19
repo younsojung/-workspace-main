@@ -1,0 +1,44 @@
+# 영업외 / 채산표 제외 항목
+# 이 카테고리에 매칭되면 채산표 계산에서 제외됨 (영업이익에 영향 X)
+
+version: "1.0"
+updated: "2026-05-19"
+
+NONOP-INVEST:
+  category: 영업외
+  name: 투자 이전 (주식회사트루스)
+  desc: 본사 트루스 법인계좌로 자금 이전 (금융투자·세금 준비 목적)
+  rules:
+    - source: bank_out
+      content_contains: [주식회사트루스, "(주)트루스"]
+      content_not_contains: [트루스크리]   # 트루스크리는 LABOR로
+
+NONOP-PERSONAL:
+  category: 영업외
+  name: 본인 자금이동
+  desc: 대표·공동대표 본인 명의 자금 이동
+  rules:
+    - source: bank_out
+      content_exact: [윤소정, 신동일, 신동일현대카드]
+
+NONOP-CARD-SETTLE:
+  category: 영업외
+  name: 카드결제 출금
+  desc: 통장에서 카드사로 결제 (실제 비용은 카드 내역서로 처리하여 중복 방지)
+  rules:
+    - source: bank_out
+      content_contains: [현대카드]
+
+NONOP-INTEREST:
+  category: 영업외
+  name: 이자수익
+  rules:
+    - source: bank_in
+      jeok_exact: [이자]
+
+NONOP-TAX-REFUND:
+  category: 영업외
+  name: 국세환급
+  rules:
+    - source: bank_in
+      jeok_exact: [국세]

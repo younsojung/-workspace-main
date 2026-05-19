@@ -1,0 +1,97 @@
+# 매출 분류 체계
+# 통장 입금에 대한 분류
+
+version: "1.0"
+updated: "2026-05-19"
+
+REV-POS:
+  category: 매출
+  name: 생각구독 과월호 (POS·이니시스)
+  desc: 매장 POS 카드결제 + 이니시스 정기 결제로 들어온 과월호 판매 매출
+  rules:
+    - source: bank_in
+      content_contains: [나이스정보통신, 이니시스]
+
+REV-LECTURE:
+  category: 매출
+  name: 강의료 (정규)
+  desc: 5가지 표준 강의 가격 (58만/63만/116만/120만/126만)
+  rules:
+    - source: bank_in
+      amount_in: [580000, 630000, 1160000, 1200000, 1260000]
+
+REV-SUB:
+  category: 매출
+  name: 생각구독 정기
+  desc: 정기 구독료 (4만/6.6만/8만/10만/12만)
+  rules:
+    - source: bank_in
+      amount_in: [40000, 66000, 80000, 100000, 120000]
+
+REV-LECTURE-EST:
+  category: 매출
+  name: 강의료 (추정)
+  desc: 정규 강의 가격대는 아니지만 강의로 추정되는 50만~200만 사이
+  rules:
+    - source: bank_in
+      amount_range: [500000, 2000000]
+
+REV-B2B:
+  category: 매출
+  name: B2B 대형 단건
+  desc: 200만 이상 기업·단체 매출 (POS 제외)
+  rules:
+    - source: bank_in
+      amount_min: 2000000
+      content_not_contains: [나이스정보통신]
+
+REV-MISC:
+  category: 매출
+  name: 기타·소액
+  desc: 위 어디에도 매칭 안 된 매출 (소액 환급금 등)
+  fallback: true
+
+# ========================================
+# 매출차감 (REV-REFUND)
+# ========================================
+REV-REFUND:
+  category: 매출차감
+  name: 환불 (외주거래처)
+  desc: 외주거래처 환불 송금 (매출에서 차감)
+  rules:
+    - source: bank_out
+      content_contains_any:
+        - 조성태(태웅산
+        - 안경희(지아)
+        - 심미경(아이프
+        - 성지은(폰드사
+        - 홍미지(스냅박
+        - 이유리(피플앤
+        - 김지은(디엔에
+        - 이상민(보아스
+
+REV-REFUND-INDIV:
+  category: 매출차감
+  name: 환불 (개인 송금)
+  desc: 한글 이름 송금 중 팀원 명단·본인·남편 외 모두 환불 처리
+  rules:
+    - source: bank_out
+      content_regex: '^[가-힣]{2,4}$'
+      content_not_contains:
+        - 김지은
+        - 박예명
+        - 주효정
+        - 김진희
+        - 황선희
+        - 김성연
+        - 최니라
+        - 조문경
+        - 최동원
+        - 김선미
+        - 김가영
+        - 조권희
+        - 조춘희
+        - 김다영
+        - 한국남
+        - 윤소정
+        - 신동일

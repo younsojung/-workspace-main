@@ -1,0 +1,49 @@
+# 개인 채산표 — 영업외 (계산 제외)
+version: "1.0"
+updated: "2026-05-20"
+
+NONOP-SPOUSE-IN:
+  category: 영업외
+  name: 남편 입금 (자금이동)
+  rules:
+    - source: bank_in
+      content_contains: [신동일, 사랑해]
+
+NONOP-SPOUSE-OUT:
+  category: 영업외
+  name: 남편 송금 (자금이동)
+  rules:
+    - source: bank_out
+      content_contains: [신동일]
+
+NONOP-SELF:
+  category: 영업외
+  name: 본인 계좌간 이동
+  rules:
+    - source: bank_out
+      content_contains: [윤소정]
+    - source: bank_in
+      content_contains: [윤소정]
+      content_not_contains: ["윤소정(트루스)"]
+
+NONOP-CARD-PAY:
+  category: 영업외
+  name: 카드 자동이체 (카드 사용내역으로 대체)
+  rules:
+    - source: bank_out
+      content_contains: [삼성카드, 현대카드, 윤소정현대카드, "ＫＢ카드출금", "윤소정 삼성카드"]
+
+NONOP-PERSONAL-TRANSFER:
+  category: 영업외
+  name: 개인 이체 (지인·가족 송금)
+  desc: 본인·남편 외 한글 이름 송금. 매월 반복 송금이 아니면 환불 아닌 개인 이체로 간주.
+  rules:
+    - source: bank_out
+      content_regex: '^[가-힣]{2,4}$'
+      content_not_contains:
+        - 윤소정
+        - 신동일
+        - 한초희
+        - 최니라
+        - 장경화
+        - 김지수

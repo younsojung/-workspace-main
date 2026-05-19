@@ -1,0 +1,256 @@
+# 개인 채산표 — 지출 분류 v2 (회사 관리기준 매핑)
+# 법인과 일관성: 보험은 별도 카테고리
+version: "2.0"
+updated: "2026-05-20"
+
+# ========================================
+# 임대료 (RENT) — 주거비
+# ========================================
+RENT-HOME:
+  category: 임대료
+  name: 월세·관리비
+  rules:
+    - source: bank_out
+      content_contains: [신성수, 동산빌라, 월세, 관리비]
+
+RENT-UTILITY:
+  category: 임대료
+  name: 전기·공과금
+  rules:
+    - source: bank_out
+      content_contains: [전기, 한국전력]
+    - source: card
+      merchant_contains: [한국전력]
+
+RENT-INTERIOR:
+  category: 임대료
+  name: 주거·인테리어
+  rules:
+    - source: card
+      merchant_contains: [서해벽지, 장판, 타일, 이화타일]
+
+# ========================================
+# 인건비 (LABOR) — 인적 지출 (교육비)
+# ========================================
+LABOR-EDU-CHILD:
+  category: 인건비
+  name: 자녀 교육 (체능단·학원)
+  rules:
+    - source: card
+      merchant_contains: [한솔교육, 플레이타임, 한전아트]
+
+LABOR-EDU-SPOUSE:
+  category: 인건비
+  name: 가족 교육 (남편)
+  rules:
+    - source: card
+      merchant_contains: [뉴로퓨전]
+
+LABOR-PERSONAL-PAY:
+  category: 인건비
+  name: 인적 이체 (퇴직금·기타)
+  rules:
+    - source: bank_out
+      content_contains: [최니라]
+
+# ========================================
+# 관리비 (MGMT) — 통신
+# ========================================
+MGMT-TELECOM:
+  category: 관리비
+  name: 통신비
+  rules:
+    - source: card
+      merchant_contains: [SK통신, KT, SKT, LGU+, "LG U+"]
+
+# ========================================
+# 세금 (TAX) — 국민건강 포함 (사용자 정정: 국민건강은 세금 성격)
+# ========================================
+TAX-HEALTH:
+  category: 세금
+  name: 국민건강보험료
+  rules:
+    - source: bank_out
+      content_contains: [국민건강]
+
+# ========================================
+# 보험 (INS) — 민영보험만
+# ========================================
+INS-PRIVATE:
+  category: 보험
+  name: 민영보험료
+  rules:
+    - source: card
+      merchant_contains: [현대해상, DB손해, 삼성화재, 메리츠]
+    - source: bank_out
+      content_contains: [DB손, 현대해상, 메리츠통합, 한화손]
+
+# ========================================
+# 운영비 (OPEX) — 일상 생활비
+# ========================================
+OPEX-FEE:
+  category: 운영비
+  name: 세무·법무
+  rules:
+    - source: bank_out
+      content_contains: [다옴세무, 세무, 회계]
+
+OPEX-MED:
+  category: 운영비
+  name: 의료·건강
+  rules:
+    - source: card
+      merchant_contains: [올바로, 한양대, 강남유앤아이, 온아한, 의원, 병원, 한의원, 약국, 치과, 요정의 손, 연세더조은]
+    - source: bank_out
+      content_contains: [한초희]
+
+OPEX-FOOD:
+  category: 운영비
+  name: 식비
+  rules:
+    - source: card
+      merchant_contains:
+        - 즐거운마트
+        - 베이커리
+        - GS25
+        - 세븐일레븐
+        - 코리아세븐
+        - 비에이치씨
+        - BHC
+        - 프랭크버거
+        - 광주요
+        - 코유
+        - 다미
+        - 김밥
+        - 식당
+        - 호프
+        - 카페
+        - 커피
+        - 컬리페이
+        - 우아한형제들
+        - 다피타
+        - "da  Pitta"
+        - 정육점
+        - 잘생긴 정육점
+        - 총각네
+        - 과일의집
+        - 목촌포크
+        - 입구떡방앗간
+        - 도로시락
+        - 떡방앗간
+        - 한식
+        - 일식
+        - 분식
+        - 중식
+        - 양식
+        - 마트
+        - 롯데마트
+        - 엘마트
+        - 농협하나로
+        - 하나로마트
+        - 쌍둥이네
+        - 굽네
+        - 피자
+        - 파리바게뜨
+        - 파리크라상
+        - 던킨
+        - 파스타
+        - 한솥
+        - "서경옥(도로시락"
+    - source: bank_out
+      content_contains: [장경화, 김지수, 똑빼포차, 네이버페이충전, 카카오페이]
+
+OPEX-LIVING:
+  category: 운영비
+  name: 생활·소모품 (쿠팡 등)
+  rules:
+    - source: bank_out
+      content_contains: [쿠팡, 다이소, 무인양품]
+    - source: card
+      merchant_contains: [다이소, 무인양품]
+
+OPEX-HEALTH-WELL:
+  category: 운영비
+  name: 헬스·웰니스 (사우나·온천)
+  rules:
+    - source: card
+      merchant_contains: [불한증막, 사우나, 산방산탄산온천, 온천, 해양치유, 한증막]
+
+OPEX-FUN:
+  category: 운영비
+  name: 여가·취미·여행
+  rules:
+    - source: card
+      merchant_contains:
+        - CGV
+        - 곤지암
+        - 씨트립
+        - 요가비드
+        - 골프
+        - 메가박스
+        - 디앤오
+        - 아난티
+        - 펜트하우스
+        - 박물관
+        - 본태박물관
+        - 제주국제자유도시
+        - 스타필드
+        - 백제소
+
+OPEX-WARDROBE:
+  category: 운영비
+  name: 의류·뷰티
+  rules:
+    - source: card
+      merchant_contains:
+        - KREAM
+        - 크림 주식회사
+        - 무신사
+        - 신세계
+        - 갤러리아
+        - 헤어살롱
+        - 모인즈헤어
+        - 미용실
+        - 화장품
+        - "Beauty Lab"
+        - 비팩토리
+        - 러쉬코리아
+
+OPEX-CAR:
+  category: 운영비
+  name: 교통비
+  rules:
+    - source: card
+      merchant_contains: [주유, 주차, 택시, 카카오T, 오토테크, 라온모토]
+
+OPEX-SUB:
+  category: 운영비
+  name: 구독료
+  rules:
+    - source: card
+      merchant_contains: [Apple, 구글페이먼트, 넷플릭스, 디즈니, 멜론, 유튜브]
+
+OPEX-NETPAY:
+  category: 운영비
+  name: 네이버페이 결제 (식단·배달)
+  rules:
+    - source: card
+      merchant_contains: [네이버페이 네이버]
+
+OPEX-CARD-UNCLEAR:
+  category: 운영비
+  name: 카드결제 (상세없음)
+  desc: 카드 자동이체 출금 중 사용내역 누락분
+  rules: []
+
+OPEX-MISC:
+  category: 운영비
+  name: 운영비 기타 (자동 fallback)
+  rules: []
+
+TAX-OTHER:
+  category: 세금
+  name: 세금·공과금
+  rules:
+    - source: bank_out
+      content_contains: [국세, 지방세, 부가가치세]

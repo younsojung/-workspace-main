@@ -1,0 +1,310 @@
+# 지출 분류 체계 (매월 자동 분류용)
+# - 위에서 아래로 매칭 (우선순위 순)
+# - 새 거래처/패턴 추가 시 해당 항목 rules에 추가
+# - 어디에도 매칭 안 되는 거래 → unclassified.csv → 사용자 검토
+
+version: "1.0"
+updated: "2026-05-19"
+
+# ========================================
+# 인건비 (LABOR) — 트루스크리는 가장 먼저 (트루스 패턴 충돌 방지)
+# ========================================
+LABOR-TRUSCRE:
+  category: 인건비
+  name: 트루스크리 인건비
+  desc: (주)트루스크리·트루스크리 이체
+  rules:
+    - source: bank_out
+      content_contains: ["(주)트루스크리", 트루스크리]
+
+# ========================================
+# 매출원가 (COGS)
+# ========================================
+COGS-EVENT-FOOD:
+  category: 매출원가
+  name: 행사 음식제공
+  desc: 강의·행사 참가자 식사·다과 (대규모 단체 식대)
+  rules:
+    - source: card
+      merchant_contains: [마더락, 흑미원조, 쉐이크쉑]
+      min_amount: 1000000
+    - source: bank_out
+      content_contains: ["심성보(흑미원", "흑미원"]
+
+COGS-EVENT-MISC:
+  category: 매출원가
+  name: 행사 준비물·꽃·소품·과일
+  rules:
+    - source: bank_out
+      content_contains: [행사준비, 행사꽃, 행사과일, "(주)셀럽인", 셀럽인]
+
+# COGS-OUTSOURCE-PROJECT 제거됨 (한국남·황선하는 인건비로 재분류)
+
+COGS-EVENT-TALENT:
+  category: 매출원가
+  name: 행사 출연·외주 인력
+  desc: 행사 가수·연사·모델·이벤트 외주 인력비
+  rules:
+    - source: bank_out
+      content_contains: ["(주)셀럽인", 셀럽인]
+
+# COGS-OUTSOURCE 제거됨
+# - 자동 분류 위험 (모든 법인 송금이 매출원가로 잡힘)
+# - 외주 제작비는 사용자가 unclassified.csv에서 매월 직접 분류
+# - 명시적으로 매출원가로 처리할 거래처가 생기면 여기 명단으로 추가
+
+# ========================================
+# 임대료 (RENT)
+# ========================================
+RENT-LECTURE:
+  category: 임대료
+  name: 강의공간·행사 대관료
+  desc: 강의·행사 공간 사용료 (레드버튼 인 시네마, 일회성 대관 포함)
+  rules:
+    - source: card
+      merchant_contains: [보드게임카페레드버튼, 레드버튼인시네마, 레드버튼]
+    - source: bank_out
+      content_contains: ["주식회사 보드"]   # 행사 대관료 (사용자 분류)
+
+RENT-OFFICE:
+  category: 임대료
+  name: 사무실·고정 임대료
+  desc: 사무실 월세·관리비, 매월 정기 임대료
+  rules:
+    - source: bank_out
+      content_contains: [임대, 월세, 관리사무소]
+    - source: bank_out
+      content_contains: ["020.주식회사평"]   # 매월 19일 정기 임대료 (현재 종료)
+
+# ========================================
+# 인건비 (LABOR) — 정규+외주+4대보험+퇴직연금 통합
+# (LABOR-TRUSCRE는 맨 위 별도 섹션에 정의됨)
+# 핵심 규칙: 명시된 팀원 명단만 인건비, 그 외 한글 이름은 REV-REFUND로
+# ========================================
+LABOR-PAYROLL-TEAM:
+  category: 인건비
+  name: 팀원 급여 (명단 기준)
+  desc: 윤소정 팀원 명단. 명단 외 한글 이름은 환불(매출차감) 처리.
+  rules:
+    - source: bank_out
+      content_exact:
+        - 김지은
+        - 박예명
+        - 주효정
+        - 김진희
+        - 황선희
+        - 김성연
+        - 최니라
+        - 조문경
+        - 최동원
+        - 김선미
+        - 김가영
+        - 조권희
+        - 조춘희
+        - 김다영
+        - 한국남
+    - source: bank_out
+      content_contains: ["황선하"]
+
+INS-PUBLIC:
+  category: 보험
+  name: 4대보험·퇴직연금
+  desc: 사회보험·국민연금·건강보험·고용보험·산재보험·퇴직연금
+  rules:
+    - source: bank_out
+      content_contains: [사회보험, 국민연금, 건강보험, 고용보험, 산재보험, 퇴직연금]
+
+INS-PUBLIC-AUTO:
+  category: 보험
+  name: 보험료 (적요 보험료)
+  desc: 적요 "보험료" 중 사업장 보험이 아닌 것 (4대보험 추정)
+  rules:
+    - source: bank_out
+      jeok_exact: [보험료]
+      content_not_contains: [DB손해, 메리츠, 삼성화재, 현대해상]
+
+# LABOR-PAYROLL / LABOR-FREELANCE 제거됨
+# - BZ급여·한글이름 패턴이 정규 인건비가 아니라 환불이 대부분 (사용자 정정)
+# - 진짜 인건비는 LABOR-PAYROLL-TEAM (명단 기준)으로만
+# - 명단 외 한글이름 송금은 REV-REFUND로 분류
+
+# ========================================
+# 관리비 (MGMT) — 공과금·시설
+# ========================================
+MGMT-ELEC:
+  category: 관리비
+  name: 전기료
+  rules:
+    - source: bank_out
+      content_contains: [한국전력]
+    - source: bank_out
+      jeok_exact: [FB전기]
+
+MGMT-TELECOM:
+  category: 관리비
+  name: 통신비
+  rules:
+    - source: bank_out
+      jeok_exact: [FB통신, 통신]
+    - source: bank_out
+      content_contains: [SK텔레콤, KT, LG U+, LGU+, 케이티]
+    - source: card
+      ujong_contains: [전화사용료]
+
+MGMT-UTIL:
+  category: 관리비
+  name: 가스·수도
+  rules:
+    - source: bank_out
+      content_contains: [수도사업, 도시가스]
+
+# ========================================
+# 운영비 (OPEX)
+# ========================================
+OPEX-PG:
+  category: 운영비
+  name: 결제수수료 (PG·POS)
+  rules:
+    - source: bank_out
+      content_contains: [이니시스, KG이니, NICE페이, 서울보증보험, NHN KCP, KCP]
+    - source: card
+      merchant_contains: [이니시스, 토스페이먼츠, KCP, 한국정보통신, 다날]
+    - source: card
+      ujong_contains: [PG쇼핑몰, PG_환금성, 보증수수료전용]
+
+OPEX-FEE:
+  category: 운영비
+  name: 세무·법무
+  rules:
+    - source: bank_out
+      content_contains: [세무, 회계]
+
+INS-BIZ:
+  category: 보험
+  name: 사업보험 (자동차·사업장)
+  rules:
+    - source: bank_out
+      jeok_exact: [보험료]
+      content_contains: [DB손해, 메리츠, 삼성화재, 현대해상]
+    - source: bank_out
+      content_contains: [DB손해, 메리츠화재, 삼성화재, 현대해상]
+
+OPEX-IT:
+  category: 운영비
+  name: IT·소프트웨어
+  desc: SaaS·도구·소프트웨어
+  rules:
+    - source: bank_out
+      content_contains: [SOLAPI, TWILIO, BUBBLE, SENDGRID, 네이버클라우드, 모니터]
+    - source: card
+      ujong_contains: [컴퓨터소프트웨어매장, 가전제품판매]
+
+OPEX-AD:
+  category: 운영비
+  name: 광고·인쇄
+  rules:
+    - source: bank_out
+      content_contains: [킨코스, 인쇄]
+    - source: card
+      ujong_contains: [광고/인쇄, 인쇄출판물]
+
+OPEX-TRIP:
+  category: 운영비
+  name: 출장·자료조사 (국내외)
+  rules:
+    - source: card
+      ujong_contains: [숙박시설-호텔,모텔,리조트, 특1급호텔, 콘도,유스호스텔, 기타숙박업, 항공사, KTX, 철도(화물)]
+    - source: card
+      merchant_contains: [BOOKING, TOKYO, JAPAN, SHIBUYA, DAIKANYAMA, UBER, STANFORD, TEHACHAPI, KEISEI, NIHON, KOKUSAI, DAIMARU, GRANSTA, FAMILY MART, SEVEN ELEVEN, DOLLAR TREE, CORNER MARKET, LEON SMITH, HAKKASAN, ICHIBAN TAXI, THREE ACE, TORITON, PIXAR STORE, Agoda, 스테이폴리오, 에어부산]
+
+OPEX-CAR:
+  category: 운영비
+  name: 차량 (리스·교통)
+  rules:
+    - source: bank_out
+      content_contains: [캐피탈, 리스, 차량대절]
+    - source: card
+      ujong_contains: [택시, 주차장, 주유소, 리무진 & 택시, 자동차인테리어, LPG충전소]
+
+OPEX-DINE:
+  category: 운영비
+  name: 접대·복리 (식대)
+  desc: 일반 식음료 - COGS-EVENT-FOOD에 매칭 안 된 것
+  rules:
+    - source: card
+      ujong_contains: [일반한식, 일식, 서양식, 중국식, 패스트푸드, 패스트푸드점, 일반주점, 커피숍, 제과점, 식당, 기타식품, 바,나이트클럽, 화랑, 정육점]
+      not_matched_above: true
+    - source: card
+      merchant_contains: [우아한형제들, 컬리페이]
+
+OPEX-WARDROBE:
+  category: 운영비
+  name: 의상·이미지
+  desc: 작가·강사 활동용 의상·이미지
+  rules:
+    - source: card
+      ujong_contains: [백화점, 남/여성복, 액세서리,의류상점, 브랜드대리점, 선물가게]
+    - source: card
+      merchant_contains: [KREAM, 무신사페이]
+    - source: bank_out
+      content_contains: [러쉬코리아]
+
+OPEX-SUPPLY:
+  category: 운영비
+  name: 소모품·사무용품
+  rules:
+    - source: card
+      ujong_contains: [편의점, 슈퍼마켓, 청과물,슈퍼마켓, 대형할인매장, 농축수산물, 연쇄점, 잡화점, 일반물품판매점, 일용식료품점, 할인점, 기타상점, 기타제조/일반도소매]
+    - source: card
+      merchant_exact: [네이버페이]
+    - source: bank_out
+      content_contains: [핸드폰, 당근, 쿠팡, 다이소, 무인양품]
+
+OPEX-STUDY:
+  category: 운영비
+  name: 자료조사·도서
+  rules:
+    - source: card
+      ujong_contains: [서점, 음반판매장]
+    - source: card
+      merchant_contains: [도서공연_네이버페이, CGV, 타임앤코]
+
+OPEX-WELFARE:
+  category: 운영비
+  name: 복리후생 (건강·여가)
+  rules:
+    - source: card
+      ujong_contains: [헬스사우나, 골프장]
+
+OPEX-REVIEW:
+  category: 운영비
+  name: 매월 검토 항목 (가맹점 정보 없음)
+  desc: 네이버파이낸셜 등 결제수단만 표시되어 용도 불명. 매월 대시보드에서 별도 표시.
+  rules:
+    - source: card
+      merchant_exact: ["네이버파이낸셜(주) - 네이버파이낸셜(주)"]
+
+OPEX-MISC:
+  category: 운영비
+  name: 운영비 기타
+  desc: 위 어디에도 매칭 안 된 운영비. fallback 아님 — 명시적 매칭만.
+  rules:
+    - source: bank_out
+      content_contains: [서울등록트루스]
+
+# ========================================
+# 세금 (TAX)
+# ========================================
+TAX-NATIONAL:
+  category: 세금
+  name: 국세
+  rules:
+    - source: bank_out
+      content_contains: [국세납부, 부가가치세, 종합소득세, 법인세]
+
+TAX-LOCAL:
+  category: 세금
+  name: 지방세
+  rules:
+    - source: bank_out
+      content_contains: [지방세, 서울시지방세]

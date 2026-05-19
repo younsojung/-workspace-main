@@ -33,3 +33,28 @@ venv/
 
 # Skill cache
 .cache/
+
+# ============================================================
+# 채산-대시보드 사적 금융 데이터 (PUBLIC repo이므로 절대 커밋 금지)
+# ============================================================
+10-projects/채산-대시보드/data/raw/
+10-projects/채산-대시보드/data/processed/
+10-projects/채산-대시보드/data/unclassified.csv
+10-projects/채산-대시보드/outputs/*.json
+10-projects/채산-대시보드/outputs/dashboard.html
+10-projects/채산-대시보드/outputs/detail.html
+
+# 기존 채산표 폴더(이전 작업물)도 동일
+10-projects/채산표/
+
+# personal-pnl 폴더 (개인 금융)
+10-projects/personal-pnl/
+10-projects/personal-pnl_v1_archive/
+
+# 통장·카드 원본 데이터
+*통장입출금*.csv
+*카드지출*.xls
+*카카오뱅크*.xlsx
+*삼성카드*.xlsx
+*황호*.xlsx
+*개인이체*.xlsx

@@ -1,0 +1,31 @@
+# 개인 채산표 — 매출 분류
+version: "1.0"
+updated: "2026-05-20"
+
+REV-MAIN:
+  category: 매출
+  name: 본업 수입 (러쉬·트루스 계열)
+  rules:
+    - source: bank_in
+      content_contains: ["(주)러쉬코리아", 러쉬코리아, "(주)러쉬", "주식회사 트루", "주식회사 뛰어", "(주)트루스크리", 트루스크리, "윤소정(트루스)"]
+
+REV-INTEREST:
+  category: 매출
+  name: 이자수익
+  rules:
+    - source: bank_in
+      거래구분_exact: [예금이자]
+    - source: bank_in
+      content_contains: ["입출금통장 이자"]
+
+REV-CARD-BACK:
+  category: 매출
+  name: 카드 캐시백·환급
+  rules:
+    - source: bank_in
+      content_contains: [삼성카드]
+
+REV-MISC:
+  category: 매출
+  name: 기타·소액
+  fallback: true
