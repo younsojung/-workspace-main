@@ -75,17 +75,37 @@ ln -s ~/Desktop/claude/workspace-main/00-system/claude-memory "$MEM_PATH/memory"
 ls -la "$MEM_PATH/memory/"
 ```
 
-## 5. 일일 워크플로우
+## 5. 자동 sync 활성화 (권장)
 
-작업 시작:
+### 5-1. Full Disk Access 권한 부여 (필수 1회)
+
+macOS는 기본적으로 백그라운드 프로세스(launchd)의 Desktop 폴더 접근을 막음. `bash`에 권한 줘야 자동 sync 작동.
+
+1. **System Settings** 열기 (사과 메뉴 → System Settings)
+2. **Privacy & Security** → **Full Disk Access**
+3. 좌하단 **`+`** 버튼 → 파일 선택 창 열림
+4. **`Cmd + Shift + G`** → 경로 입력: `/bin/bash`
+5. `bash` 선택 → **Open** → 토글 켜기 (파란색)
+6. 비밀번호 입력 (있으면)
+
+### 5-2. LaunchAgent 등록
+
 ```bash
-cd ~/Desktop/claude/workspace-main
-bash 00-system/scripts/sync.sh   # 다른 머신 변경 가져오기 + 로컬도 같이 정리
+bash ~/Desktop/claude/workspace-main/00-system/scripts/setup-autosync.sh
 ```
 
-작업 끝:
+→ 30분마다 자동 sync. 로그: `~/Library/Logs/workspace-sync.log`
+
+### 5-3. Claude Code Stop 훅 (자동 적용됨)
+
+`.claude/settings.json`이 git에 있어서 노트북에서도 Claude Code 세션 끝날 때마다 자동 sync 됨. 별도 설정 불필요.
+
+## 6. 수동 sync (자동이 안 될 때)
+
+작업 시작 / 끝:
 ```bash
-bash 00-system/scripts/sync.sh "오늘 작업 요약"
+cd ~/Desktop/claude/workspace-main
+bash 00-system/scripts/sync.sh "메시지"
 ```
 
 designer/ 도 동일:
@@ -93,7 +113,7 @@ designer/ 도 동일:
 bash ~/Desktop/claude/workspace-main/00-system/scripts/sync-designer.sh
 ```
 
-## 6. 충돌 발생 시
+## 7. 충돌 발생 시
 
 `sync.sh` 에서 pull 단계가 실패하면 충돌 가능성:
 ```bash
@@ -105,7 +125,7 @@ git rebase --continue          # 또는 git rebase --abort
 
 확실하지 않으면 Claude에게 "git 충돌 났어"라고 말하기.
 
-## 7. 멀티 머신 사용 원칙
+## 8. 멀티 머신 사용 원칙
 
 1. **한 번에 한 머신만** 작업 — 동시에 같은 파일 편집하면 충돌
 2. 작업 전 `sync.sh` 먼저
