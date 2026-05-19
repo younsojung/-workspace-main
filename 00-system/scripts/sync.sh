@@ -21,32 +21,33 @@ echo "📍 머신: $HOSTNAME"
 echo "📍 브랜치: $BRANCH"
 echo ""
 
-# --- 1. PULL 먼저 (다른 머신 변경 가져오기) ---
+# --- 1. 로컬 변경 먼저 commit (rebase 충돌 회피) ---
+git add .
+TS=$(date +"%Y-%m-%d %H:%M")
+MSG="${1:-sync from $HOSTNAME: $TS}"
+LOCAL_HAD_CHANGES=0
+if ! git diff --cached --quiet; then
+  git commit -m "$MSG"
+  LOCAL_HAD_CHANGES=1
+  echo ""
+fi
+
+# --- 2. PULL (다른 머신 변경 가져오기) ---
 echo "→ origin/$BRANCH 에서 pull (rebase)..."
 if ! git pull --rebase origin "$BRANCH" 2>&1; then
   echo ""
-  echo "❌ Pull 실패 — 충돌 가능성. 수동 해결 필요."
+  echo "❌ Pull/rebase 실패 — 충돌 가능성. 수동 해결 필요."
   echo "   git status 로 확인 후 git rebase --continue / --abort"
   exit 1
 fi
 echo ""
 
-# --- 2. 로컬 변경 스테이징 ---
-git add .
-
-if git diff --cached --quiet; then
+# --- 3. PUSH (로컬 변경 또는 rebase 결과 송신) ---
+if [ "$LOCAL_HAD_CHANGES" -eq 1 ] || [ "$(git rev-list @{u}..HEAD --count 2>/dev/null)" -gt 0 ]; then
+  echo "→ origin/$BRANCH 으로 push..."
+  git push origin "$BRANCH"
+  echo ""
+  echo "✅ 동기화 완료: $MSG"
+else
   echo "✅ 변경사항 없음. Pull만 완료."
-  exit 0
 fi
-
-# --- 3. 커밋 메시지 ---
-TS=$(date +"%Y-%m-%d %H:%M")
-MSG="${1:-sync from $HOSTNAME: $TS}"
-
-# --- 4. 커밋 + PUSH ---
-git commit -m "$MSG"
-echo ""
-echo "→ origin/$BRANCH 으로 push..."
-git push origin "$BRANCH"
-echo ""
-echo "✅ 동기화 완료: $MSG"

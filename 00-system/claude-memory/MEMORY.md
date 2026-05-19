@@ -3,3 +3,4 @@
 - [GitHub Setup](github-setup.md) — younsojung/-workspace-main repo, SSH ed25519 키, sync.sh 스크립트 위치
 - [Integrations](integrations.md) — Notion/Gmail/Calendar/Drive MCP 연결됨. gws CLI 미설치(2026-05-19 시점)
 - [Communication Style](communication-style.md) — 한글, 간결, 친밀한 톤. 비기술 사용자에게는 단계별 명확한 지시
+- [Terminal Setup](terminal_setup.md) — Claude Code는 iTerm2 + D2Coding에서 실행. Terminal.app은 한글 깨져서 안 씀
