@@ -1,0 +1,602 @@
+[
+  {
+    "tag": "A",
+    "text": "뒤로",
+    "href": "javascript:;",
+    "cls": "btn btn-flat goback "
+  },
+  {
+    "tag": "A",
+    "text": "뒤로",
+    "href": "javascript:;",
+    "cls": "btn btn-flat goback "
+  },
+  {
+    "tag": "A",
+    "text": "더보기",
+    "href": "javascript:;",
+    "cls": "tile more"
+  },
+  {
+    "tag": "A",
+    "text": "게시물 알림",
+    "href": "javascript:;",
+    "cls": "board-alaram tile"
+  },
+  {
+    "tag": "A",
+    "text": "내 글 반응\t\t\t\t\t\t\t\t\t\t\t\t\t내가 작성한 게시물이나 댓글에 다른 사람이 댓글이나 답글을 작성하면 알려줍니다.",
+    "href": "javascript:;",
+    "cls": "tile"
+  },
+  {
+    "tag": "A",
+    "text": "공지사항\t\t\t\t\t\t\t\t\t\t\t\t\t사이트에서 보내는 중요한 공지를 실시간으로 알려줍니다.",
+    "href": "javascript:;",
+    "cls": "tile"
+  },
+  {
+    "tag": "A",
+    "text": "Alarm",
+    "href": "javascript:;",
+    "cls": "nav-btn-icon profile alarm-toggle _show_alarm"
+  },
+  {
+    "tag": "A",
+    "text": "마이페이지",
+    "href": "https://younsojung.imweb.me/login?back_url=L3Nob3BfbXlwYWdl&type=mypage",
+    "cls": "btn btn-flat"
+  },
+  {
+    "tag": "A",
+    "text": "로그아웃",
+    "href": "https://younsojung.imweb.me/logout.cm?back_url=Lw%3D%3D",
+    "cls": "btn btn-flat right"
+  },
+  {
+    "tag": "A",
+    "text": "로그인이 필요합니다.\n\t\t\t\t\t\t\t\t\t로그인",
+    "href": "https://younsojung.imweb.me/login?back_url=Lw%3D%3D&used_login_btn=Y",
+    "cls": "btn nav-btn-icon profile no-padding btn-flat full-width"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "로그인",
+    "href": "",
+    "cls": ""
+  },
+  {
+    "tag": "A",
+    "text": "처음이라면",
+    "href": "https://younsojung.imweb.me/About",
+    "cls": "has_child"
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각이 처음이라면?",
+    "href": "https://younsojung.imweb.me/firstthought",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정 연대기",
+    "href": "https://younsojung.imweb.me/102030",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각 80편",
+    "href": "https://younsojung.imweb.me/ebook",
+    "cls": "has_child"
+  },
+  {
+    "tag": "A",
+    "text": "E-book",
+    "href": "https://younsojung.imweb.me/etimeline",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "실물도서",
+    "href": "https://younsojung.imweb.me/book",
+    "cls": "has_child"
+  },
+  {
+    "tag": "A",
+    "text": "주제별 생각",
+    "href": "https://younsojung.imweb.me/btopic",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "시간별 생각",
+    "href": "https://younsojung.imweb.me/btimeline",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "생각구독 신청",
+    "href": "https://younsojung.imweb.me/subscribe",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "오프라인",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": "has_child"
+  },
+  {
+    "tag": "A",
+    "text": "인사이드룸 방문하기",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "생각 마라톤",
+    "href": "https://younsojung.imweb.me/95",
+    "cls": " "
+  },
+  {
+    "tag": "A",
+    "text": "커뮤니티",
+    "href": "https://younsojung.imweb.me/community",
+    "cls": " "
+  },
+  {
+    "tag": "BUTTON",
+    "text": "닫기",
+    "href": "",
+    "cls": "navbar-toggle close slide-close"
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각구독",
+    "href": "https://younsojung.imweb.me/home",
+    "cls": "_fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "처음이라면",
+    "href": "https://younsojung.imweb.me/About",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각이 처음이라면?",
+    "href": "https://younsojung.imweb.me/firstthought",
+    "cls": "_txt_m20250813fef042f43d10b   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정 연대기",
+    "href": "https://younsojung.imweb.me/102030",
+    "cls": "_txt_m202507309161ad4f96886   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각 80편",
+    "href": "https://younsojung.imweb.me/ebook",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "E-book",
+    "href": "https://younsojung.imweb.me/etimeline",
+    "cls": "_txt_m202212262e5b4fbb6b7f6   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "실물도서",
+    "href": "https://younsojung.imweb.me/book",
+    "cls": "_txt_m20240604dd1b26ba3c8e0   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "주제별 생각",
+    "href": "https://younsojung.imweb.me/btopic",
+    "cls": "_txt_m202406042ad419b071e8b   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "시간별 생각",
+    "href": "https://younsojung.imweb.me/btimeline",
+    "cls": "_txt_m2024060330c396212360e   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "생각구독 신청",
+    "href": "https://younsojung.imweb.me/subscribe",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "오프라인",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "인사이드룸 방문하기",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": "_txt_m20260520ee12201a4fb25   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "생각 마라톤",
+    "href": "https://younsojung.imweb.me/95",
+    "cls": "_txt_m20260520c5fb31e82632c   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "커뮤니티",
+    "href": "https://younsojung.imweb.me/community",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "처음이라면",
+    "href": "https://younsojung.imweb.me/About",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각이 처음이라면?",
+    "href": "https://younsojung.imweb.me/firstthought",
+    "cls": "_txt_m20250813fef042f43d10b   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정 연대기",
+    "href": "https://younsojung.imweb.me/102030",
+    "cls": "_txt_m202507309161ad4f96886   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각 80편",
+    "href": "https://younsojung.imweb.me/ebook",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "E-book",
+    "href": "https://younsojung.imweb.me/etimeline",
+    "cls": "_txt_m202212262e5b4fbb6b7f6   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "실물도서",
+    "href": "https://younsojung.imweb.me/book",
+    "cls": "_txt_m20240604dd1b26ba3c8e0   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "주제별 생각",
+    "href": "https://younsojung.imweb.me/btopic",
+    "cls": "_txt_m202406042ad419b071e8b   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "시간별 생각",
+    "href": "https://younsojung.imweb.me/btimeline",
+    "cls": "_txt_m2024060330c396212360e   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "생각구독 신청",
+    "href": "https://younsojung.imweb.me/subscribe",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "오프라인",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "인사이드룸 방문하기",
+    "href": "https://younsojung.imweb.me/insideroom",
+    "cls": "_txt_m20260520ee12201a4fb25   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "생각 마라톤",
+    "href": "https://younsojung.imweb.me/95",
+    "cls": "_txt_m20260520c5fb31e82632c   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "커뮤니티",
+    "href": "https://younsojung.imweb.me/community",
+    "cls": "fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
+  },
+  {
+    "tag": "A",
+    "text": "LOGIN",
+    "href": "https://younsojung.imweb.me/login?back_url=Lw%3D%3D&used_login_btn=Y",
+    "cls": "_fade_link   btn_text btn_6b52494a7c0c7   btn_custom "
+  },
+  {
+    "tag": "A",
+    "text": "MY",
+    "href": "https://younsojung.imweb.me/login?back_url=Lw%3D%3D&used_login_btn=Y",
+    "cls": "_fade_link   btn_text btn_322c2rwlc5   btn_custom "
+  },
+  {
+    "tag": "A",
+    "text": "장바구니",
+    "href": "https://younsojung.imweb.me/shop_cart",
+    "cls": "_fade_link  custom_class btn btn_7811a6LQtB   btn-default btn_custom "
+  },
+  {
+    "tag": "A",
+    "text": "site search",
+    "href": "https://younsojung.imweb.me/#",
+    "cls": "fixed_transform "
+  },
+  {
+    "tag": "A",
+    "text": "MENU",
+    "href": "javascript:;",
+    "cls": "_no_hover fixed_transform inline-blocked"
+  },
+  {
+    "tag": "A",
+    "text": "윤소정의 생각",
+    "href": "https://younsojung.imweb.me/",
+    "cls": ""
+  },
+  {
+    "tag": "A",
+    "text": "site search",
+    "href": "https://younsojung.imweb.me/#",
+    "cls": "fixed_transform "
+  },
+  {
+    "tag": "A",
+    "text": "로그인",
+    "href": "https://younsojung.imweb.me/login?back_url=Lw%3D%3D&used_login_btn=Y",
+    "cls": "_fade_link  custom_class btn btn_8bb5eebc437b6   btn-default btn_custom "
+  },
+  {
+    "tag": "A",
+    "text": "장바구니0",
+    "href": "https://younsojung.imweb.me/shop_cart",
+    "cls": "_fade_link  custom_class btn btn_0n137s843Q   btn-default btn_custom "
+  },
+  {
+    "tag": "A",
+    "text": "이미지 맵",
+    "href": "https://younsojung.imweb.me/firstthought",
+    "cls": "_fade_link  "
+  },
+  {
+    "tag": "A",
+    "text": "이미지 맵",
+    "href": "https://younsojung.imweb.me/ebook",
+    "cls": "_fade_link  "
+  },
+  {
+    "tag": "A",
+    "text": "이미지 맵",
+    "href": "https://younsojung.imweb.me/subscribeopen",
+    "cls": "_fade_link  "
+  },
+  {
+    "tag": "A",
+    "text": "[ebook] 진짜 전문가로 성장했던 윤소정식 유학법_일본편 (3권)\n문득 떠난 여행에서 소정님을 닮고 싶어. 구매했습니다. :)",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122223608);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n가슴이 심장이 두근두근하네요^^",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122086144);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 다시 시작하는 마음\n시작할 수 있는 용기의 또 다른 계기가 될 수 있었다.",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122085112);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 시간의 세례\n시간의 세례를 읽을 수 있어 좋았어요",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122075103);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 바운더리\n바운더리가 무엇인지 나는 어떤것에 우선순위를 정해야하는지 고민할때 구매한책...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122024265);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 그릇을 키우는 시간\n그릇은 어느 곳에서든 잘 쓰여야 의미가 있다. 그릇의 크기가 크다는 건 단순히 보여지는 것 그 이상이다. 오늘도 감사합니다...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121886018);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 깨끗한 학습력\n다시 나를 되볼아볼수있었던 시간",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121657125);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n공부에 대한 새로운 시각을 보여주어서 유익했다 다른 책도 구매해보고 싶다 술술 잘 읽힌다...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121578437);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n전자책이라 바로 다운로드 해서 읽을 수가 있어서 참 편라합니다. 엿앙 보고나서 바로 읽고싶어졌어요. 잘 읽어볼께요.....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121485346);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n인쇄되지 않아 나무에게 미안한 감정이 안들게 끔 한것이 다행이다",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121382669);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 깨끗한 학습력\n이 책으로 윤소정님에게 입문!",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121166539);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 커리어 설계의 비밀\n윤소정 님 글 중에 꼭 한번 읽어보면 좋을 챕터 입니다. 새 시작에 도움이 되었습니다....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120972928);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\nfomo 때문에 너무 불안했습니다. 아직도 어떻게 공부해야할지 정확히는 모르겠지만, 이 책을 읽고 헛된 방향에 휩쓸리는 시간을 줄인 것 같습니다. 다음 권이 너무 기대됩니다....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120971716);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 커리어 설계의 비밀\n진심으로 제목과 목차를 보고 이거다 해서 구매하게 되었습니다. 실제로 어려운부분이기도 하고요....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120900446);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n우연히 유튜브로 보고 궁금해졌어요",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120892178);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 깨끗한 학습력\n레퍼런스를 찾아도 뭔가 똑같은 결과가 나오지 않은거 같아 답답한 마음에 산 책.. 저에게 꼭 필요했던 이야기였습니다 감사해요!...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120884457);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 커리어 설계의 비밀\n이 책을 읽으며 제가 어떤 계절에 있는지 지금 계절에 뭘 해야하는지 알게 됐고 앞으로 나아가는 힘이 됩니다....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120883788);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 날것의 사랑\n뻔하지 않은 인사이트를 늘 흡수할 수 있도록 도와줘서 고마운 책.",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120882372);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 깨끗한 학습력\n대부분의 사람들이 그렇듯 저도 자신의 생각이 아니라 남의 생각대로 행동하는 것을 견디지 못했습니다. 그래서 정말 좋은 가르침도 제것으로 만들지 못했어요. 해당 책을 통해 깨끗한 학...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120876369);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\n깜짝놀랐습니다. 처음에는 속은 것 같았습니다. 잘못 구매했나 싶었지만 읽으면 읽을수록 계속 생각하게 되고, 고민하게 되고, 갈망하게 되었습니다. 닮고 싶고, 쉬프트 전환점을 맞이하...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(120872951);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "이미지 맵",
+    "href": "https://younsojung.imweb.me/esingle?utm_source=imweb&utm_medium=banner&utm_campaign=homeebook",
+    "cls": "_fade_link  "
+  },
+  {
+    "tag": "A",
+    "text": "이미지 맵",
+    "href": "https://younsojung.imweb.me/subscribeopen?utm_source=imweb&utm_medium=banner&utm_campaign=homesubopen",
+    "cls": "_fade_link  "
+  },
+  {
+    "tag": "A",
+    "text": "[ebook] 진짜 전문가로 성장했던 윤소정식 유학법_일본편 (3권)\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t문득 떠난 여행에서 소정님을 닮고 싶어. 구매했습니다. :)",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122223608);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t가슴이 심장이 두근두근하네요^^",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122086144);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 다시 시작하는 마음\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t시작할 수 있는 용기의\n또 다른 계기가 될 수 있었다.",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122085112);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 시간의 세례\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t시간의 세례를 읽을 수 있어 좋았어요",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122075103);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 바운더리\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t바운더리가 무엇인지 나는 어떤것에 우선순위를 정해야하는지 고민할때 구매한책...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(122024265);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 그릇을 키우는 시간\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t그릇은 어느 곳에서든 잘 쓰여야 의미가 있다. 그릇의 크기가 크다는 건 단순히 보여지는 것 그 이상이다. 오늘도 감사합니다...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121886018);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 깨끗한 학습력\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t다시 나를 되볼아볼수있었던 시간",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121657125);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t공부에 대한 새로운 시각을 보여주어서 유익했다 다른 책도 구매해보고 싶다 술술 잘 읽힌다...",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121578437);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t전자책이라 바로 다운로드 해서 읽을 수가 있어서 참 편라합니다.  엿앙 보고나서 바로 읽고싶어졌어요. 잘 읽어볼께요.....",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121485346);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "[E-book] 나는 '언러닝' 합니다\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t인쇄되지 않아 나무에게 미안한 감정이 안들게 끔 한것이 \n다행이다",
+    "href": "javascript:NEWEST_POST.viewReviewPostDetail(121382669);",
+    "cls": ">"
+  },
+  {
+    "tag": "A",
+    "text": "카카오톡 채널 @truspia",
+    "href": "http://pf.kakao.com/_zDdaG/chat",
+    "cls": ""
+  },
+  {
+    "tag": "A",
+    "text": "이용약관",
+    "href": "https://younsojung.imweb.me/?mode=policy",
+    "cls": ""
+  },
+  {
+    "tag": "A",
+    "text": "개인정보처리방침",
+    "href": "https://younsojung.imweb.me/?mode=privacy",
+    "cls": ""
+  },
+  {
+    "tag": "A",
+    "text": "SNS 바로가기",
+    "href": "https://instagram.com/trus_sojung",
+    "cls": "btn _B5Ccm5Fi58 "
+  }
+]
