@@ -1,0 +1,384 @@
+# DOM 텍스트: 윤소정의 생각구독
+
+- URL: https://younsojung.co.kr/ebook
+
+- 풀페이지: ./fullpage.png
+
+- 섹션 캡처: 8장 (section_00 ~ section_07)
+
+
+## Headings
+
+- (h2) [E-book] 그동안 그녀는 어떤 생각을 했을까? (Full set ebook - 75권)
+- (h2) [E-book] 그동안 그녀는 어떤 생각을 했을까? (Full set ebook - 75권)
+- (h2) [E-book] (2025,39살의 기록 12권)
+- (h2) [E-book] (2025,39살의 기록 12권)
+- (h2) [E-book] 나는 '언러닝' 합니다
+- (h2) [E-book] 나는 '언러닝' 합니다
+- (h2) [E-book] 10년 뒤 미국에서 찾은 것들
+- (h2) [E-book] 10년 뒤 미국에서 찾은 것들
+- (h2) [E-book] 숫자를 언어로
+- (h2) [E-book] 숫자를 언어로
+- (h2) [E-book] 커리어 설계의 비밀
+- (h2) [E-book] 커리어 설계의 비밀
+- (h2) [E-book] 상하이 유학 계획서
+- (h2) [E-book] 상하이 유학 계획서
+- (h2) [E-book] 느림의 정확도
+- (h2) [E-book] 느림의 정확도
+- (h2) [E-book] 날 것의 시대
+- (h2) [E-book] 날 것의 시대
+- (h2) [E-book] 너의 악마성
+- (h2) [E-book] 너의 악마성
+- (h2) [E-book] 떠나고 싶은 사람을 위하여
+- (h2) [E-book] 떠나고 싶은 사람을 위하여
+- (h2) [E-book] 브랜드 프렌드쉽
+- (h2) [E-book] 브랜드 프렌드쉽
+- (h2) [E-book] 알고리즘을 공유하며
+- (h2) [E-book] 알고리즘을 공유하며
+- (h2) [E-book] Heritage 헤리티지
+- (h2) [E-book] Heritage 헤리티지
+- (h2) [E-book] AI 시대의 실력, 쪼대로 산다
+- (h2) [E-book] AI 시대의 실력, 쪼대로 산다
+- (h2) [E-book] 매력자본부터 충전할 것
+- (h2) [E-book] 매력자본부터 충전할 것
+- (h2) [E-book] 30대, 마지막 모험 선언문
+- (h2) [E-book] 30대, 마지막 모험 선언문
+- (h2) [E-book] 아름다운 정리
+- (h2) [E-book] 아름다운 정리
+- (h2) [E-book] 깨끗한 학습력
+- (h2) [E-book] 깨끗한 학습력
+- (h2) [E-book] 생각할 시간
+- (h2) [E-book] 생각할 시간
+- (h2) [E-book] 기다리는 실력
+- (h2) [E-book] 기다리는 실력
+- (h2) [E-book] 지혜로운 질투
+- (h2) [E-book] 지혜로운 질투
+- (h2) [E-book] 중심을 찾자
+- (h2) [E-book] 중심을 찾자
+- (h2) [E-book] 어른의 재교육
+- (h2) [E-book] 어른의 재교육
+
+## Paragraphs / List Items
+
+- (p) 780,000원
+- (p) 975,000원
+- (p) 780,000원
+- (p) 975,000원
+- (p) 140,400원
+- (p) 156,000원
+- (p) 140,400원
+- (p) 156,000원
+- (p) 13,000원
+- (p) No.79
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.78
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.77
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.76
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.75
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.74
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.73
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.72
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.71
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.70
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.69
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.68
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.67
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.66
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.65
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.64
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.63
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.62
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.61
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.60
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.58
+- (p) 13,000원
+- (p) 13,000원
+- (p) No.57
+- (p) 13,000원
+- (p) (주) 트루스에듀케이트
+- (p) Adress : 2F 10, Baekjegobun-ro 43-gil, Songpa-gu, Seoul, Republic of Korea
+- (p) BUSINESS REGISTRATION 753-88-03507
+- (p) Sales Report Number : 2025-서울송파-0729 / dongilshin
+- (p) 고객센터 : 카카오톡 채널 @truspia
+- (p) 이메일 : hh@trusgroup.co.kr
+- (li) Alarm
+- (li) 마이페이지 로그아웃
+- (li) 처음이라면 윤소정의 생각이 처음이라면? 윤소정 연대기
+- (li) 윤소정의 생각이 처음이라면?
+- (li) 윤소정 연대기
+- (li) 윤소정의 생각 80편 E-book 한정판 (실물도서)
+- (li) E-book
+- (li) 한정판 (실물도서)
+- (li) 생각구독 신청
+- (li) 오프라인 인사이드룸 방문하기 생각 마라톤
+- (li) 인사이드룸 방문하기
+- (li) 생각 마라톤
+- (li) 커뮤니티
+- (li) 처음이라면
+- (li) 윤소정의 생각 80편
+- (li) 생각구독 신청
+- (li) 오프라인
+- (li) 커뮤니티
+- (li) 처음이라면 윤소정의 생각이 처음이라면? 윤소정 연대기
+- (li) 윤소정의 생각이 처음이라면?
+- (li) 윤소정 연대기
+- (li) 윤소정의 생각 80편 E-book 한정판 (실물도서)
+- (li) E-book
+- (li) 한정판 (실물도서)
+- (li) 생각구독 신청
+- (li) 오프라인 인사이드룸 방문하기 생각 마라톤
+- (li) 인사이드룸 방문하기
+- (li) 생각 마라톤
+- (li) 커뮤니티
+- (li) 이용약관
+- (li) 개인정보처리방침
+
+## Buttons / CTA 후보
+
+- 뒤로
+- Alarm
+- 마이페이지
+				로그아웃
+- 마이페이지
+- 로그아웃
+- 로그인이 필요합니다.
+									로그인
+- 로그인
+- 닫기
+- 버튼
+- LOGIN
+MY
+장바구니
+- LOGIN
+- MY
+- 장바구니
+- site search
+- 로그인장바구니0
+- 장바구니0
+- 등록순
+								인기순
+								낮은가격순
+								높은가격순
+								상품평 많은순
+								이름순
+								이름역순
+- View More
+- (1/4)
+- SNS 바로가기
+
+## Links (anchor text + href)
+
+- [뒤로](javascript:;)
+- [더보기](javascript:;)
+- [게시물 알림](javascript:;)
+- [내 글 반응 내가 작성한 게시물이나 댓글에 다른 사람이 댓글이나 답글을 작성하면 알려줍니다.](javascript:;)
+- [공지사항 사이트에서 보내는 중요한 공지를 실시간으로 알려줍니다.](javascript:;)
+- [Alarm](javascript:;)
+- [마이페이지](/login?back_url=L3Nob3BfbXlwYWdl&type=mypage)
+- [로그아웃](/logout.cm?back_url=L2V0aW1lbGluZQ%3D%3D)
+- [로그인이 필요합니다. 로그인](/login?back_url=L2V0aW1lbGluZQ%3D%3D&used_login_btn=Y)
+- [처음이라면](/About)
+- [윤소정의 생각이 처음이라면?](/firstthought)
+- [윤소정 연대기](/102030)
+- [윤소정의 생각 80편](/ebook)
+- [E-book](/etimeline)
+- [한정판 (실물도서)](/btopic)
+- [생각구독 신청](/subscribe)
+- [오프라인](/insideroom)
+- [인사이드룸 방문하기](/insideroom)
+- [생각 마라톤](/95)
+- [커뮤니티](/community)
+- [윤소정의 생각구독](/home)
+- [LOGIN](/login?back_url=L2V0aW1lbGluZQ%3D%3D&used_login_btn=Y)
+- [MY](/login?back_url=L2V0aW1lbGluZQ%3D%3D&used_login_btn=Y)
+- [장바구니](/shop_cart)
+- [site search](#)
+- [MENU](javascript:;)
+- [윤소정의 생각](/)
+- [로그인](/login?back_url=L2V0aW1lbGluZQ%3D%3D&used_login_btn=Y)
+- [장바구니0](/shop_cart)
+- [[E-book] 그동안 그녀는 어떤 생각을 했을까? (Full set ebook - 75권) 780,000원 975,000원](/etimeline/?idx=107)
+- [[E-book] (2025,39살의 기록 12권) 140,400원 156,000원](/etimeline/?idx=162)
+- [No.79 [E-book] 나는 '언러닝' 합니다 13,000원](/etimeline/?idx=167)
+- [No.78 [E-book] 10년 뒤 미국에서 찾은 것들 13,000원](/etimeline/?idx=165)
+- [No.77 [E-book] 숫자를 언어로 13,000원](/etimeline/?idx=164)
+- [No.76 [E-book] 커리어 설계의 비밀 13,000원](/etimeline/?idx=161)
+- [No.75 [E-book] 상하이 유학 계획서 13,000원](/etimeline/?idx=160)
+- [No.74 [E-book] 느림의 정확도 13,000원](/etimeline/?idx=159)
+- [No.73 [E-book] 날 것의 시대 13,000원](/etimeline/?idx=158)
+- [No.72 [E-book] 너의 악마성 13,000원](/etimeline/?idx=157)
+- [No.71 [E-book] 떠나고 싶은 사람을 위하여 13,000원](/etimeline/?idx=156)
+- [No.70 [E-book] 브랜드 프렌드쉽 13,000원](/etimeline/?idx=155)
+- [No.69 [E-book] 알고리즘을 공유하며 13,000원](/etimeline/?idx=149)
+- [No.68 [E-book] Heritage 헤리티지 13,000원](/etimeline/?idx=148)
+- [No.67 [E-book] AI 시대의 실력, 쪼대로 산다 13,000원](/etimeline/?idx=144)
+- [No.66 [E-book] 매력자본부터 충전할 것 13,000원](/etimeline/?idx=143)
+- [No.65 [E-book] 30대, 마지막 모험 선언문 13,000원](/etimeline/?idx=140)
+- [No.64 [E-book] 아름다운 정리 13,000원](/etimeline/?idx=139)
+- [No.63 [E-book] 깨끗한 학습력 13,000원](/etimeline/?idx=138)
+- [No.62 [E-book] 생각할 시간 13,000원](/etimeline/?idx=137)
+- [No.61 [E-book] 기다리는 실력 13,000원](/etimeline/?idx=136)
+- [No.60 [E-book] 지혜로운 질투 13,000원](/etimeline/?idx=135)
+- [No.58 [E-book] 중심을 찾자 13,000원](/etimeline/?idx=132)
+- [No.57 [E-book] 어른의 재교육 13,000원](/etimeline/?idx=131)
+- [View More](javascript:;)
+- [카카오톡 채널 @truspia](http://pf.kakao.com/_zDdaG/chat)
+- [이용약관](/?mode=policy)
+- [개인정보처리방침](/?mode=privacy)
+- [SNS 바로가기](https://instagram.com/trus_sojung)
+
+## Images (위에서 아래로)
+
+- top=0  0x0  alt="프로필 정보수정"  src=https://younsojung.co.kr/common/img/default_profile.png
+- top=0  0x0  alt="윤소정의 생각"  src=https://cdn.imweb.me/thumbnail/20250910/4504723e5a6de.png
+- top=0  0x0  alt="윤소정의 생각"  src=https://cdn.imweb.me/thumbnail/20250910/4504723e5a6de.png
+- top=0  0x0  alt=""  src=https://cdn.imweb.me/thumbnail/20260520/f59b12e0b3a2d.jpg
+- top=7  98x57  alt="윤소정의 생각구독"  src=https://cdn.imweb.me/thumbnail/20250910/dd305dc409c50.png
+- top=7  98x57  alt="윤소정의 생각구독"  src=https://cdn.imweb.me/thumbnail/20250910/dd305dc409c50.png
+- top=71  1440x563  alt=""  src=https://cdn.imweb.me/thumbnail/20260521/47bb2be6b060a.jpg
+- top=801  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/6f12e7c646472.jpg?w=800
+- top=801  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/a0bd070e770b0.jpg?w=800
+- top=801  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/fb44b3975e92a.jpg?w=800
+- top=1453  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/7281c0b68f3de.jpg?w=800
+- top=1453  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/d69eb939ddfc6.jpg?w=800
+- top=1453  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/93f2bc9d414e7.jpg?w=800
+- top=2102  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/1ddb29a71aedf.jpg?w=800
+- top=2102  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/b6eefb9337752.jpg?w=800
+- top=2102  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/7979f06a8fa6c.jpg?w=800
+- top=2751  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/80e154ab1a710.jpg?w=800
+- top=2751  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/354852ed97785.jpg?w=800
+- top=2751  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/c1d09cdc85d43.jpg?w=800
+- top=3400  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/3851be08e22d1.jpg?w=800
+- top=3400  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/b6203bd1aecfe.jpg?w=800
+- top=3400  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/3dc7576fef1ab.jpg?w=800
+- top=4049  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/2e1542b6df8b7.jpg?w=800
+- top=4049  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/72fddd998c79a.jpg?w=800
+- top=4049  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/c4ec2154c13c9.jpg?w=800
+- top=4698  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/c93e2e44dbac7.jpg?w=800
+- top=4698  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/393f62d87ac23.jpg?w=800
+- top=4698  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/4d6033bbbc7bc.jpg?w=800
+- top=5348  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/5e6cbe49a1a39.jpg?w=800
+- top=5348  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/3f508d8ca6a4f.jpg?w=800
+- top=5348  374x489  alt=""  src=https://cdn-optimized.imweb.me/upload/S202111179cc8092b6dbbb/01d3aa26d15a1.jpg?w=800
+
+## Visible Text Blocks (위→아래 순서, 중복 제거)
+
+> 이 항목은 DOM 상의 *진짜* 텍스트. 이미지 위에 박힌 카피는 OCR이 필요함 (스크린샷 참고).
+
+- top=    6 (span) 윤소정의 생각구독
+- top=   25 (span) 처음이라면
+- top=   25 (span) 윤소정의 생각 80편
+- top=   25 (span) 생각구독 신청
+- top=   25 (span) 오프라인
+- top=   25 (span) 커뮤니티
+- top=   27 (span) LOGIN
+- top=   36 (span) site search
+- top=   37 (span) 장바구니
+- top=   65 (span) 윤소정의 생각이 처음이라면?
+- top=   65 (span) E-book
+- top=   65 (span) 인사이드룸 방문하기
+- top=  103 (span) 윤소정 연대기
+- top=  103 (span) 한정판 (실물도서)
+- top=  103 (span) 생각 마라톤
+- top= 1304 (h2) [E-book] 그동안 그녀는 어떤 생각을 했을까? (Full set ebook - 75권)
+- top= 1304 (h2) [E-book] (2025,39살의 기록 12권)
+- top= 1304 (p) No.79
+- top= 1321 (h2) [E-book] 나는 '언러닝' 합니다
+- top= 1331 (p) 140,400원
+- top= 1336 (p) 156,000원
+- top= 1348 (p) 13,000원
+- top= 1350 (p) 780,000원
+- top= 1355 (p) 975,000원
+- top= 1955 (p) No.78
+- top= 1955 (p) No.77
+- top= 1955 (p) No.76
+- top= 1973 (h2) [E-book] 10년 뒤 미국에서 찾은 것들
+- top= 1973 (h2) [E-book] 숫자를 언어로
+- top= 1973 (h2) [E-book] 커리어 설계의 비밀
+- top= 2604 (p) No.75
+- top= 2604 (p) No.74
+- top= 2604 (p) No.73
+- top= 2622 (h2) [E-book] 상하이 유학 계획서
+- top= 2622 (h2) [E-book] 느림의 정확도
+- top= 2622 (h2) [E-book] 날 것의 시대
+- top= 3254 (p) No.72
+- top= 3254 (p) No.71
+- top= 3254 (p) No.70
+- top= 3271 (h2) [E-book] 너의 악마성
+- top= 3271 (h2) [E-book] 떠나고 싶은 사람을 위하여
+- top= 3271 (h2) [E-book] 브랜드 프렌드쉽
+- top= 3903 (p) No.69
+- top= 3903 (p) No.68
+- top= 3903 (p) No.67
+- top= 3920 (h2) [E-book] 알고리즘을 공유하며
+- top= 3920 (h2) [E-book] Heritage 헤리티지
+- top= 3920 (h2) [E-book] AI 시대의 실력, 쪼대로 산다
+- top= 4552 (p) No.66
+- top= 4552 (p) No.65
+- top= 4552 (p) No.64
+- top= 4569 (h2) [E-book] 매력자본부터 충전할 것
+- top= 4569 (h2) [E-book] 30대, 마지막 모험 선언문
+- top= 4569 (h2) [E-book] 아름다운 정리
+- top= 5201 (p) No.63
+- top= 5201 (p) No.62
+- top= 5201 (p) No.61
+- top= 5218 (h2) [E-book] 깨끗한 학습력
+- top= 5218 (h2) [E-book] 생각할 시간
+- top= 5218 (h2) [E-book] 기다리는 실력
+- top= 5850 (p) No.60
+- top= 5850 (p) No.58
+- top= 5850 (p) No.57
+- top= 5868 (h2) [E-book] 지혜로운 질투
+- top= 5868 (h2) [E-book] 중심을 찾자
+- top= 5868 (h2) [E-book] 어른의 재교육
+- top= 6017 (a) View More
+- top= 6123 (span) SNS 바로가기
+- top= 6124 (a) 이용약관
+- top= 6148 (a) 개인정보처리방침
+- top= 6150 (p) (주) 트루스에듀케이트
+- top= 6171 (p) Adress : 2F 10, Baekjegobun-ro 43-gil, Songpa-gu, Seoul, Republic of Korea
+- top= 6189 (span) BUSINESS REGISTRATION 753-88-03507
+- top= 6210 (span) Sales Report Number : 2025-서울송파-0729 / dongilshin
+- top= 6252 (a) 카카오톡 채널 @truspia
+- top= 6255 (p) 고객센터 :
+- top= 6276 (p) 이메일 : hh@trusgroup.co.kr
+- top= 6302 (div) Copyright ⓒ 2026 윤소정의 생각구독 All rights reserved.

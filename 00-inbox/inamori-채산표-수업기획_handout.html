@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이나모리 가즈오의 채산표 — 수업 기획서</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root {
+  --color-bg: #FFFFFF;
+  --color-bg-dark: #111111;
+  --color-bg-muted: #F5F5F5;
+  --color-text: #111111;
+  --color-text-light: #FFFFFF;
+  --color-text-muted: #666666;
+  --color-border: #E0E0E0;
+  --color-accent: #111111;
+  --font-sans: 'Helvetica Neue', 'Pretendard', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; margin: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #888;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 210mm; height: 297mm;
+  padding: 18mm 20mm 20mm 20mm;
+  margin: 10px auto;
+  background: var(--color-bg);
+  position: relative; overflow: hidden;
+  page-break-after: always; page-break-inside: avoid;
+}
+@media print { body { background: white; } .page { margin: 0; box-shadow: none; } }
+@media screen { .page { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+
+.cover {
+  width: 210mm; height: 297mm;
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 24mm; margin: 10px auto;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+@media screen { .cover { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .cover { margin: 0; box-shadow: none; } }
+.cover-label { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.4; margin-bottom: 12mm; }
+.cover-title { font-family: var(--font-sans); font-size: 28pt; font-weight: 700; line-height: 1.15; margin-bottom: 5mm; letter-spacing: -0.02em; }
+.cover-title em { font-style: normal; font-weight: 300; }
+.cover-subtitle { font-family: var(--font-sans); font-size: 12pt; font-weight: 300; opacity: 0.7; margin-bottom: 18mm; line-height: 1.5; }
+.cover-meta { display: grid; grid-template-columns: auto 1fr; gap: 2mm 6mm; font-size: 8.5pt; opacity: 0.5; }
+.cover-meta dt { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.05em; text-transform: uppercase; }
+.cover-meta dd { margin: 0; }
+.cover-brand { position: absolute; bottom: 18mm; left: 24mm; font-size: 10pt; font-weight: 600; letter-spacing: 0.05em; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10mm; padding-bottom: 3mm; border-bottom: 1pt solid var(--color-border); }
+.page-brand { font-size: 8pt; font-weight: 600; opacity: 0.3; letter-spacing: 0.1em; }
+.page-number { font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.1em; opacity: 0.3; }
+.page-footer { position: absolute; bottom: 12mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 6.5pt; opacity: 0.25; font-family: var(--font-mono); }
+
+.section-number { font-family: var(--font-mono); font-size: 6.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1.5mm; }
+.section-title { font-family: var(--font-sans); font-size: 16pt; font-weight: 700; line-height: 1.25; margin-bottom: 6mm; color: var(--color-text); letter-spacing: -0.01em; }
+.section-title em { font-weight: 300; font-style: normal; }
+h3 { font-family: var(--font-sans); font-size: 8.5pt; font-weight: 700; margin-bottom: 2.5mm; margin-top: 5mm; color: var(--color-text); }
+h3:first-of-type { margin-top: 0; }
+h4 { font-size: 8pt; font-weight: 600; margin-bottom: 1.5mm; }
+p { font-size: 8pt; line-height: 1.65; margin-bottom: 2.5mm; color: var(--color-text-muted); }
+
+.quote { background: var(--color-bg-dark); color: var(--color-text-light); padding: 4.5mm 5.5mm; border-radius: 1pt; margin: 4mm 0; }
+.quote p { color: var(--color-text-light); margin: 0; font-size: 8pt; line-height: 1.6; }
+.quote strong { color: var(--color-text-light); }
+.quote-light { background: var(--color-bg-muted); color: var(--color-text); border-left: 2pt solid var(--color-text); padding: 3mm 4mm; margin: 3mm 0; font-size: 8pt; line-height: 1.6; }
+.quote-light p { color: var(--color-text-muted); margin: 0; }
+
+ul, ol { padding-left: 5mm; margin-bottom: 3mm; }
+li { font-size: 8pt; line-height: 1.65; margin-bottom: 1mm; color: var(--color-text-muted); }
+li strong { color: var(--color-text); font-weight: 600; }
+.principles { list-style: none; padding: 0; counter-reset: principle; }
+.principles li { counter-increment: principle; padding: 2.5mm 0; border-bottom: 0.5pt solid var(--color-border); display: flex; align-items: baseline; gap: 3mm; font-size: 8pt; }
+.principles li:last-child { border-bottom: none; }
+.principles li::before { content: '0' counter(principle); font-family: var(--font-mono); font-size: 7pt; color: var(--color-text-muted); flex-shrink: 0; width: 6mm; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 3mm 0; }
+.dark-inline { background: var(--color-bg-dark); color: var(--color-text-light); margin: 4mm 0; padding: 5mm; border-radius: 1pt; }
+.dark-inline h3, .dark-inline h4 { color: var(--color-text-light); }
+.dark-inline p { color: rgba(255,255,255,0.75); }
+.dark-inline li { color: rgba(255,255,255,0.75); }
+.dark-inline li strong { color: var(--color-text-light); }
+.highlight-box { border: 1.5pt solid var(--color-text); padding: 4mm 5mm; margin: 4mm 0; border-radius: 1pt; }
+.highlight-box h4 { font-size: 9pt; font-weight: 700; margin-bottom: 2.5mm; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 7.5pt; }
+th { background: var(--color-bg-dark); color: var(--color-text-light); padding: 2.5mm 3mm; text-align: left; font-weight: 600; font-size: 7pt; letter-spacing: 0.05em; }
+td { padding: 2.5mm 3mm; border-bottom: 0.5pt solid var(--color-border); color: var(--color-text-muted); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td strong { color: var(--color-text); font-weight: 600; }
+
+.divider { height: 0.5pt; background: var(--color-border); margin: 5mm 0; }
+.divider-tight { height: 0.5pt; background: var(--color-border); margin: 3mm 0; }
+
+.stage-title { font-size: 11pt; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 1mm; margin-top: 4mm; }
+.stage-title:first-of-type { margin-top: 0; }
+.stage-title .stage-num { font-family: var(--font-mono); font-size: 8pt; color: var(--color-text-muted); margin-right: 2mm; }
+.stage-subtitle { font-size: 8.5pt; color: var(--color-text-muted); font-style: italic; margin-bottom: 2mm; }
+
+.closing {
+  width: 210mm; height: 297mm;
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  padding: 24mm; margin: 10px auto; page-break-after: avoid;
+}
+@media screen { .closing { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .closing { margin: 0; box-shadow: none; } }
+.closing-title { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 6mm; letter-spacing: -0.02em; }
+.closing-title em { font-weight: 300; font-style: normal; }
+.closing-sub { font-size: 10pt; opacity: 0.4; margin-bottom: 16mm; }
+.closing-info { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.1em; opacity: 0.3; line-height: 2.2; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="cover-label">Lecture Plan · 윤소정의 기획법</div>
+  <h1 class="cover-title">이나모리 가즈오의 <em>채산표</em><br>— 시간당 부가가치로<br>일과 삶을 재설계하다</h1>
+  <p class="cover-subtitle">회사의 채산표를 배우는 동안,<br>동시에 자기 인생의 채산표 한 장이 손에 잡힌다.</p>
+  <dl class="cover-meta">
+    <dt>Date</dt><dd>2026-05-19</dd>
+    <dt>Author</dt><dd>윤소정</dd>
+    <dt>Format</dt><dd>4회 × 120분 (단원 모드)</dd>
+    <dt>Target</dt><dd>직장인 · 1인사업자 · 작은 조직 리더</dd>
+  </dl>
+  <div class="cover-brand">YUNSOJUNG · PLANNER</div>
+</div>
+
+<!-- ============ PAGE 1 — 컨셉 + 메타 + 학습 목표 + 단원 흐름 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">01 / 08</div>
+  </div>
+
+  <div class="section-number">Section 01</div>
+  <h2 class="section-title">한 줄 <em>컨셉</em> & 메타</h2>
+
+  <div class="quote">
+    <p><strong>"내 시간에 가격을 매겨본 적 있는가?"</strong><br>회사의 채산표를 배우는 동안, 동시에 자기 인생의 채산표 한 장이 손에 잡힌다.</p>
+  </div>
+
+  <table>
+    <tr><th style="width: 28%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>대상</strong></td><td>직장인(5~15년차) · 1인사업자/프리랜서 · 작은 조직 리더 (15~20명) <em>(추정)</em></td></tr>
+    <tr><td><strong>사전 지식</strong></td><td>회계 비전공자. 손익계산서 들어봤지만 직접 짜본 적 없음 <em>(추정)</em></td></tr>
+    <tr><td><strong>시간 구조</strong></td><td>단원 모드 · 4회 × 120분 (총 8시간) · 주 1회 4주</td></tr>
+    <tr><td><strong>형식</strong></td><td>하이브리드 — 오프라인 워크샵 중심 + 매주 사이 온라인 과제 <em>(추정)</em></td></tr>
+    <tr><td><strong>공간</strong></td><td>이동 가능한 워크샵 룸 (테이블 4~5개, 화이트보드 2개)</td></tr>
+    <tr><td><strong>도구</strong></td><td>노트북 · 채산표 워크시트(A4) · 본인 가계부/통장 데이터 · 인스타 또는 본인 채널</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>학습 목표 — 4 차원</h3>
+  <ul>
+    <li><strong>왜 배우는가</strong> · "바쁘게 살고 있는데 왜 통장은 안 부푸는가" — 자기 시간이 가치로 환산되지 않는 구조를 직시한다</li>
+    <li><strong>무엇을 배우는가</strong> · 이나모리 채산표 원리. 시간당 부가가치 = (수입 − 인건비 제외 경비) ÷ 총노동시간</li>
+    <li><strong>어떻게 쓰는가</strong> · 회사 채산표 1장 + 본인 개인 채산표 1장을 직접 작성</li>
+    <li><strong>무엇이 새로 생기는가</strong> · "내 시간의 가격"이라는 새 단위로 일·돈·관계를 다시 본다</li>
+  </ul>
+
+  <div class="highlight-box">
+    <h4>전환점 1순위 · 행동</h4>
+    <p>끝나고 본인의 채산표 한 장이 손에 들려 있어야 한다.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>단원 4주 흐름</h3>
+  <table>
+    <tr><th>주차</th><th>단계</th><th>한 줄 컨셉</th></tr>
+    <tr><td><strong>1주</strong></td><td>만남 + 알아챔</td><td>"내 시간은 얼마짜리인가"</td></tr>
+    <tr><td><strong>2주</strong></td><td>상상 + 정보</td><td>"이나모리는 무엇을 발견했나"</td></tr>
+    <tr><td><strong>3주</strong></td><td>연습 + 나의 것</td><td>"회사 채산표 → 나의 채산표"</td></tr>
+    <tr><td><strong>4주</strong></td><td>다듬기 + 펼치기</td><td>"이걸 가지고 나가는 한 사람의 결심"</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>2026.05.19</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — 1단계 + 2단계 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">02 / 08</div>
+  </div>
+
+  <div class="section-number">Section 02</div>
+  <h2 class="section-title">8단계 기획 · <em>1~2</em></h2>
+
+  <div class="stage-title"><span class="stage-num">01</span>만남</div>
+  <div class="stage-subtitle">너의 한 시간은 얼마였는가</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "지난 일주일에서, 가장 가치 있었던 1시간과 가장 허비된 1시간을 적어봐. 각각 얼마짜리였나?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(10') 개인 글쓰기 — 가치 있던 1시간 + 허비된 1시간 + 본인이 매긴 가격 / (10') 4인 1조 나눔 — "왜 그 가격을 매겼는가" / (5') 전체 공유 — 가장 높은 가격, 가장 낮은 가격</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>동기 부여자 — 본인 사례 먼저 공개. "강의 1시간 50만원, 준비 10시간. 진짜 시간당은 5만원이었다." 절대 정답을 던지지 않음</td></tr>
+    <tr><td><strong>도구</strong></td><td>A4 1장 · 본인 일주일 캘린더(폰) · 윤소정 사례 슬라이드 1장</td></tr>
+    <tr><td><strong>시간</strong></td><td>25분 (약 21% — 상한 초과. 성인 학습자 "왜 지금" 비중 ↑)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>"내가 시간을 너무 싸게 팔고 있었네"라는 말이 나오면 성공</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <div class="stage-title"><span class="stage-num">02</span>알아챔</div>
+  <div class="stage-subtitle">우리는 왜 시간을 가격으로 안 봤을까</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "왜 우리는 월급을 '월'로 받고, 시간으로 받지 않았을까? 그게 우리에게 무엇을 가렸을까?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(10') 본인 가격을 시급으로 환산 + 본인 월급 시급과 비교 / (10') 4인 1조 — "내 시간에 가격을 안 매기게 만든 환경 3개" / (5') 패턴 명명 — "시간을 안 보이게 만드는 것들"</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>안내자 — "그게 너만의 경험인가, 옆 사람도 같은가?" 같은 질문으로 개별 → 패턴 이행 유도</td></tr>
+    <tr><td><strong>도구</strong></td><td>화이트보드(패턴 그래프) · 시급 계산 미니 워크시트 (월급 ÷ 월 노동시간)</td></tr>
+    <tr><td><strong>시간</strong></td><td>25분 (약 21%)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>"우리는 시간을 단위로 안 다뤘구나"라는 공통 자각. 화이트보드 리스트 5개 이상</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>1주차 · 만남 + 알아챔</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 3 — 3단계 + 4단계 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">03 / 08</div>
+  </div>
+
+  <div class="section-number">Section 03</div>
+  <h2 class="section-title">8단계 기획 · <em>3~4</em></h2>
+
+  <div class="stage-title"><span class="stage-num">03</span>상상</div>
+  <div class="stage-subtitle">교세라의 한 공장에서 무슨 일이 있었나</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "1963년, 27살 이나모리가 두 공장 중 어느 쪽이 더 효율적인지 어떻게 알아냈을까?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(10') 1963년 시가 공장 스토리 듣기 — 교토 본사와 신설 시가 공장을 어떻게 비교할까 / (15') 4인 1조 마인드맵 — "두 공장을 같은 자로 재는 방법" 자유 토론 → 자기들 식 공식 만들기 / (5') 그룹별 공식 발표 → 화이트보드에 나란히</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>큐레이터 — 시가 공장 에피소드를 이야기로 들려주기. 채산표라는 단어는 아직 안 꺼냄. 학습자가 발견하는 자리</td></tr>
+    <tr><td><strong>도구</strong></td><td>화이트보드 · 시가 공장 흑백 사진 · 컬러 마커</td></tr>
+    <tr><td><strong>시간</strong></td><td>15분 (약 13%)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>한 그룹이라도 "수입 − 비용 ÷ 시간"에 도달하면 대성공. 못 도달해도 시도 자체가 다음 단계 흡수율 결정</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <div class="stage-title"><span class="stage-num">04</span>정보</div>
+  <div class="stage-subtitle">채산표의 해부학</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "이나모리가 만든 채산표는 정확히 무엇인가, 일반 손익계산서와 무엇이 다른가?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(15') 미니강의 1: 채산표 5핵심 — ①시간당 부가가치 공식 ②인건비를 경비에서 빼는 이유 ③아메바(5~50명) 단위 ④사내매매 시장가격 원칙 ⑤월 1회 전원 공개 / (10') 미니강의 2: 회계학 7원칙 / (10') 실사례 — JAL 도산 → 2년 8개월 만에 영업이익 1,884억엔</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>전문가 — 슬라이드 최대 10장. 숫자 1개 = 슬라이드 1장. 시간당 채산 공식은 반드시 손글씨로 칠판에</td></tr>
+    <tr><td><strong>도구</strong></td><td>슬라이드 (실 채산표 예시: 사외 35,000 / 사내 25,000 / … / 시간당 채산 5,000엔/H) · JAL 인포그래픽 1장</td></tr>
+    <tr><td><strong>시간</strong></td><td>30분 (약 25% — 가장 긴 단계, 상한 준수)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>"왜 인건비를 뺐어요?"라는 질문이 나오면 만점</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>2주차 · 상상 + 정보</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — 5단계 + 6단계 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">04 / 08</div>
+  </div>
+
+  <div class="section-number">Section 04</div>
+  <h2 class="section-title">8단계 기획 · <em>5~6</em></h2>
+
+  <div class="stage-title"><span class="stage-num">05</span>연습</div>
+  <div class="stage-subtitle">교세라 가상 부서로 채산표 1장 만들기</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "주어진 데이터로, 이 부서의 시간당 채산을 직접 계산해보자"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(5') 워크시트 배포 — 가상 부서 "A아메바" 한 달 데이터 (사외매출/사내매출/사내구매/원재료비/외주비/통신비/노동시간) / (20') 개인별 채산표 완성 → 시간당 채산 산출 / (10') 2인 1조 비교 → 다르면 어디서 났는지 추적</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>코치 — 돌아다니며 막힌 사람 도움. 정답 X, 어디서 막혔는지 묻기. 오류 환영 ("그 실수가 좋은 실수예요")</td></tr>
+    <tr><td><strong>도구</strong></td><td>A아메바 워크시트 1장 · 계산기/노트북 · 정답표는 마지막에만 공개</td></tr>
+    <tr><td><strong>시간</strong></td><td>20분 (약 17%)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>전원이 시간당 채산 숫자 1개를 자기 손으로 산출. 정답 일치보다 공식을 통과한 것 자체가 핵심</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <div class="dark-inline">
+    <h4>⚡ 권한 이양 — 5단계 → 6단계</h4>
+    <p>5단계는 <strong>주어진 양식</strong>을 따라가는 단계. 6단계부터는 학습자가 자기 양식을 직접 만든다. 이 손바뀜이 단원 전체의 심장이다.</p>
+  </div>
+
+  <div class="stage-title"><span class="stage-num">06</span>나의 것 ⭐</div>
+  <div class="stage-subtitle">나의 채산표 한 장</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "회사의 채산표를 이제 나에게 적용한다면, 너의 한 달은 어떤 표가 되는가?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(5') 개인 채산표 양식 받기 — 빈 칸뿐. 행·열 자율 정의 / (15') 본인 통장·가계부·캘린더로 한 달 채산표 완성. 행 자율: 본업/부업 수입, 시간 투입, 외부 의존, 경비, 시간당 부가가치 / (10') 4인 1조 발표 — "내 채산표에서 가장 충격적인 줄 하나"만 공유</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>촉진자 — 덜 가르치고 더 묻기. "왜 그 항목을 넣었어요?" 양식을 처방하지 않음</td></tr>
+    <tr><td><strong>도구</strong></td><td>반쯤 비어있는 채산표 양식 · 폰 가계부 앱 · 캘린더</td></tr>
+    <tr><td><strong>시간</strong></td><td>30분 (약 25% — 단원의 중심, 비중 ↑)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>서로 다른 모양의 표가 나옴. "내 시간당 부가가치가 시급 알바보다 낮네"가 행동 변화 트리거</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>3주차 · 연습 + 나의 것</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — 7단계 + 8단계 + 흐름표 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">05 / 08</div>
+  </div>
+
+  <div class="section-number">Section 05</div>
+  <h2 class="section-title">8단계 기획 · <em>7~8</em></h2>
+
+  <div class="stage-title"><span class="stage-num">07</span>다듬기</div>
+  <div class="stage-subtitle">내 채산표는 정직한가</div>
+  <div class="quote-light"><p><strong>핵심 질문</strong> · "이 채산표가 정말 너의 한 달을 정직하게 비추고 있는가? 무엇을 가렸는가?"</p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(10') 셀프 비판 — "이 표가 안 보여주는 것 3개" (감정 노동·무급 돌봄·친구 시간 등) / (10') 2인 1조 동료 피드백 — "추가해야 할 한 줄" 추천 / (5') 채산표 v2로 1줄 수정</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>비판적 동료 — "이 표 안에 너의 살아있음이 들어가 있는가?" 짓누르지 않게 더 높은 기준 살짝</td></tr>
+    <tr><td><strong>도구</strong></td><td>동료 피드백 양식 (3칸: 좋은 점 / 안 보이는 것 / 한 줄 제안)</td></tr>
+    <tr><td><strong>시간</strong></td><td>15분 (약 13%)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>본인 채산표가 단순 가계부가 아니라 인생 측정 도구로 자라기 시작</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <div class="stage-title"><span class="stage-num">08</span>펼치기</div>
+  <div class="stage-subtitle">한 사람의 결심을 세상에 한 줄로</div>
+  <div class="quote"><p>🎯 <strong>청중</strong> · 본인 인스타·블로그·뉴스레터 구독자 또는 본 클래스 단톡방. <strong>반드시 외부 공개.</strong></p></div>
+
+  <table>
+    <tr><th style="width: 22%;">항목</th><th>내용</th></tr>
+    <tr><td><strong>학습자 활동</strong></td><td>(10') 본인 채산표 사진 1장 + 1줄 결심 — "내 시간당 부가가치를 ___까지 올리기 위해, 이번 달 ___을 안 한다" / (5') 단톡방/SNS 게시 / (10') 단원 전체 회고 — 4주 전 본인과 지금 본인의 차이 (1인 1분)</td></tr>
+    <tr><td><strong>기획자 역할</strong></td><td>청중·연결자 — 모든 게시물에 댓글 1개씩. 3개월 후 후속 워크샵 약속. 의도적으로 뒤로 물러남</td></tr>
+    <tr><td><strong>도구</strong></td><td>인스타 / 블로그 / 클래스 단톡방 / 이메일 뉴스레터</td></tr>
+    <tr><td><strong>시간</strong></td><td>15분 (약 13%)</td></tr>
+    <tr><td><strong>성공 신호</strong></td><td>본인 외 최소 한 명의 외부 청중이 반응. 학습이 교실 밖으로 나감</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>4주차 · 다듬기 + 펼치기</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 — 4주 흐름표 + 평가 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">06 / 08</div>
+  </div>
+
+  <div class="section-number">Section 06</div>
+  <h2 class="section-title">단원 <em>흐름표</em> & 평가</h2>
+
+  <h3>4주 시간 라인</h3>
+  <table>
+    <tr><th style="width: 8%;">주차</th><th style="width: 14%;">단계</th><th style="width: 12%;">시간</th><th>핵심 활동</th><th style="width: 12%;">모드</th></tr>
+    <tr><td rowspan="3"><strong>1주</strong></td><td>1. 만남</td><td>25분</td><td>가장 가치 있던 1시간 vs 허비된 1시간에 가격 매기기</td><td>우뇌</td></tr>
+    <tr><td>2. 알아챔</td><td>25분</td><td>"시간을 가린 것들" 패턴 찾기</td><td>좌뇌</td></tr>
+    <tr><td colspan="2">통합 활동 70분</td><td>본인 일주일 시급 정리 + 1시간의 진짜 가격 토론</td><td>통합</td></tr>
+    <tr><td rowspan="3"><strong>2주</strong></td><td>3. 상상</td><td>15분</td><td>1963년 시가 공장 사고실험</td><td>우뇌</td></tr>
+    <tr><td>4. 정보</td><td>30분</td><td>채산표 해부 + 7원칙 + JAL 사례</td><td>좌뇌</td></tr>
+    <tr><td colspan="2">통합 활동 75분</td><td>강의 + 그룹 Q&amp;A + 채산표 양식 정독</td><td>통합</td></tr>
+    <tr><td rowspan="3"><strong>3주</strong></td><td>5. 연습</td><td>20분</td><td>A아메바 가상 채산표 작성</td><td>좌뇌</td></tr>
+    <tr><td>6. 나의 것 ⭐</td><td>30분</td><td><strong>내 채산표 1장 작성</strong></td><td>우뇌</td></tr>
+    <tr><td colspan="2">통합 활동 70분</td><td>본인 통장 정리 + 본인 시간당 부가가치 산출</td><td>통합</td></tr>
+    <tr><td rowspan="3"><strong>4주</strong></td><td>7. 다듬기</td><td>15분</td><td>채산표 v2 — 정직한가 검토</td><td>좌뇌</td></tr>
+    <tr><td>8. 펼치기</td><td>15분</td><td>1줄 결심 SNS/단톡방 공개</td><td>우뇌</td></tr>
+    <tr><td colspan="2">통합 활동 90분</td><td>단원 회고 + 3개월 후 후속 약속 + 채산표 인쇄·서명</td><td>통합</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>평가 / 성취 확인</h3>
+  <ul>
+    <li><strong>형성 평가</strong> · 5단계 직후 — 전원이 A아메바 시간당 채산 숫자를 자기 손으로 계산했는가</li>
+    <li><strong>형성 평가</strong> · 6단계 산출물 — 서로 다른 모양의 표가 나왔는가 (똑같은 양식이면 실패)</li>
+    <li><strong>최종 평가 (행동 1순위)</strong> · 본인 채산표 1장이 인스타/블로그/단톡방에 실제로 게시되었는가</li>
+    <li><strong>4주 후 후속</strong> · 한 달 동안 본인 채산표를 다시 한 번이라도 갱신했는가</li>
+    <li><strong>청중 반응</strong> · 학습자별 게시물 외부 반응(좋아요/댓글), 다른 학습자에게 개념을 설명한 사례 발생 여부</li>
+  </ul>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>흐름표 + 평가</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 7 — 운영 핵심 원리 + 부록 A·B ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">07 / 08</div>
+  </div>
+
+  <div class="section-number">Section 07</div>
+  <h2 class="section-title">운영 핵심 <em>원리</em> & 준비물</h2>
+
+  <h3>윤소정의 손글씨 메모 — 운영 5원리</h3>
+  <ol class="principles">
+    <li><strong>만남(1단계) 절대 짧게 처리 금지.</strong> 시간당 부가가치라는 낯선 단위를 받아들이려면 본인 일주일을 정직하게 들여다보는 시간이 먼저.</li>
+    <li><strong>4단계(정보)를 부풀리지 말 것.</strong> 채산표 공식은 한 줄. 30분 안에 다 들어간다. 욕심내면 5/6단계가 죽는다.</li>
+    <li><strong>6단계가 이 수업의 심장.</strong> 회사 채산표는 재료다. 본인 채산표가 만들어지지 않으면 4주 전체가 강의가 된다.</li>
+    <li><strong>8단계 청중은 반드시 교실 밖.</strong> 단톡방 안에서만 공유하면 펼치기가 무너진다. 본인 SNS·뉴스레터·블로그 중 공개 채널 하나 반드시.</li>
+    <li><strong>3개월 후 후속 모임 미리 약속.</strong> 단원 종료 시점에 3개월 후 1회 후속 워크샵을 캘린더에 박아둔다. 다음 사이클의 씨앗.</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <div class="two-col">
+    <div>
+      <h3>부록 A · 워크시트 리스트</h3>
+      <ul>
+        <li><strong>1주차</strong> · "내 일주일 1시간 가격표" (A4 1장)</li>
+        <li><strong>2주차</strong> · "채산표 해부도" (강의 핸드아웃, A4 양면)</li>
+        <li><strong>3주차</strong> · "A아메바 가상 채산표" + "나의 채산표 양식(반쯤 비어있는)" (A4 2장)</li>
+        <li><strong>4주차</strong> · "동료 피드백 양식" + "1줄 결심 카드" (A4 + 명함 크기)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>부록 B · 사전 준비 체크리스트</h3>
+      <ul>
+        <li>1단계 본인 사례 슬라이드 1장</li>
+        <li>3단계 시가 공장 사진 + 스토리 카드</li>
+        <li>4단계 슬라이드 10장 이내 (숫자 1=슬라이드 1)</li>
+        <li>5단계 A아메바 워크시트 + 정답표</li>
+        <li>6단계 본인 채산표 빈 양식</li>
+        <li>8단계 청중 채널 미리 알림</li>
+        <li>화이트보드 2 + 마커 + A4 50장 + 명함지</li>
+        <li>3개월 후 후속 모임 날짜 사전 예약</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>핵심 참고 자료 (수업 자료 제작 시)</h3>
+  <table>
+    <tr><th style="width: 50%;">자료</th><th>용도</th></tr>
+    <tr><td><code>00-inbox/inamori-research-1-정의.md</code></td><td>1·4단계 — 채산표 정의, 회계학 7원칙</td></tr>
+    <tr><td><code>00-inbox/inamori-research-2-학습법.md</code></td><td>단원 설계 원리, 흔한 함정</td></tr>
+    <tr><td><code>00-inbox/inamori-research-3-회사채산표.md</code></td><td>4·5단계 — 채산표 예시 표, JAL 사례, 사내 매매</td></tr>
+    <tr><td><code>00-inbox/inamori-research-4-개인채산표.md</code></td><td>6단계 — 개인 채산표 양식, 시간당 부가가치 응용</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>운영 원리 + 부록</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 8 — 회고 질문 + 미해결 + 자체 점검 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 수업</div>
+    <div class="page-number">08 / 08</div>
+  </div>
+
+  <div class="section-number">Section 08</div>
+  <h2 class="section-title">사후 <em>회고</em> & 자체 점검</h2>
+
+  <h3>부록 C · 사후 회고 질문 (운영자용)</h3>
+  <ol>
+    <li>만남(1단계)이 형식적으로 흐르지 않았는가? "정답을 너무 빨리 던지지" 않았는가?</li>
+    <li>4단계(정보)가 30분 안에 끝났는가? 욕심내서 50분 강의가 되지 않았는가?</li>
+    <li>5→6단계 권한 손바뀜이 분명했는가? 학습자가 본인 양식을 만들었는가?</li>
+    <li>8단계 청중이 교실 밖에 있었는가? 외부 반응이 실제로 발생했는가?</li>
+    <li>학습자 중 한 명이라도 "내 시간당 부가가치가 ___" 같은 수치적 인식을 가지고 나갔는가?</li>
+    <li>다음 사이클(3개월 후)로 어떻게 이어갈 것인가?</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <h3>부록 D · 미해결 / 운영 후 조정 필요</h3>
+  <ul>
+    <li>학습자 중 통장 데이터 정리가 안 된 사람의 6단계 진행 방법 — 대안: 추정치로 진행 + 4주차 보강 과제</li>
+    <li>1인사업자와 직장인의 시간당 부가가치 비교 기준 차이 — 별도 양식 분기 필요할 수 있음</li>
+    <li>단원 종료 후 졸업생 커뮤니티 운영 — 별도 채널 vs 단톡방 유지</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <div class="highlight-box">
+    <h4>자체 점검 결과 — 7/7 통과</h4>
+    <ul>
+      <li>만남(1단계) · <strong>개인 이야기 + 도발적 질문 동시 사용</strong></li>
+      <li>5→6단계 권한 손바뀜 · <strong>가상 데이터 → 본인 데이터로 분명히 전환</strong></li>
+      <li>6단계 자기 맥락 적용 · <strong>본인 통장·가계부·캘린더로 본인 채산표 작성</strong></li>
+      <li>8단계 청중 명시 · <strong>인스타·블로그·뉴스레터 중 외부 공개 채널 강제</strong></li>
+      <li>시간 비중 · <strong>만남 21% / 알아챔 21% / 상상 13% / 정보 25% / 연습 17% / 나의 것 25% / 다듬기 13% / 펼치기 13%</strong> (만남·나의 것 의도적 상향)</li>
+      <li>성인 학습자 1단계 상한 · <strong>상한 초과(21%) — 낯선 단위 도입의 무게에 맞춤</strong></li>
+      <li>단원 모드 적용 · <strong>4회 × 120분 단원 모드</strong></li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="quote">
+    <p>이 기획서는 윤소정의 기획법(8단계)을 따라 설계됐다.<br>한 단계라도 형식적으로 처리되면 사이클이 무너진다.<br>특히 <strong>만남(1단계)의 질</strong>과 <strong>나의 것(6단계)의 자율성</strong>에 집중할 것.<br><br>— 윤소정, 2026.05.19</p>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG PLANNER</span>
+    <span>회고 + 점검</span>
+  </div>
+</div>
+
+<!-- ============ CLOSING ============ -->
+<div class="closing">
+  <h1 class="closing-title">내 시간에<br><em>가격</em>을 매겨본 적 있는가</h1>
+  <p class="closing-sub">회사의 채산표를 배우는 4주,<br>손에 들리는 것은 나의 채산표 한 장.</p>
+  <div class="closing-info">
+    YUNSOJUNG · PLANNER<br>
+    INAMORI KAZUO · 채산표 수업 기획서<br>
+    2026 · 05 · 19
+  </div>
+</div>
+
+</body>
+</html>

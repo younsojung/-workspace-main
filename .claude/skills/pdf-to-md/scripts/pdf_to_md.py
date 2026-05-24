@@ -11,6 +11,8 @@ Options:
   --images            Extract embedded images to <output>_images/ (linked in markdown)
 """
 
+from __future__ import annotations
+
 import argparse
 import sys
 from pathlib import Path

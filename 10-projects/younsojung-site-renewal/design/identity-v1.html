@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>윤소정 — 생각의 페이스메이커</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --black: #0a0a0a;
+  --white: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-300: #d4d4d4;
+  --gray-500: #737373;
+  --gray-700: #404040;
+  --serif: 'Noto Serif KR', serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+body {
+  font-family: var(--serif);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SECTION 1: HERO ===== */
+.hero {
+  min-height: 60vh;
+  padding: 6vh 8vw 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-stairs {
+  font-family: var(--sans);
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 5.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.hero-stairs .step-1 { margin-left: 0; }
+.hero-stairs .step-2 { margin-left: 8vw; margin-top: 0.6rem; }
+.hero-stairs .step-3 {
+  margin-left: 16vw;
+  margin-top: 0.6rem;
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
+}
+.hero-stairs .change-rep { display: inline-block; }
+.hero-stairs .change-rep:nth-child(2) { opacity: 0.55; margin-left: 0.6rem; }
+.hero-stairs .change-rep:nth-child(3) { opacity: 0.25; margin-left: 0.6rem; }
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--black);
+  margin: 3vh 0 2vh;
+}
+.hero-sub .name {
+  font-family: var(--sans);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  letter-spacing: 0.45em;
+  margin-bottom: 1.8rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+.hero-sub .role {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.hero-sub .role-tag {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: var(--gray-500);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* ===== SECTION 2: LEARN vs SHARE ===== */
+.split {
+  padding: 6vh 8vw 4vh;
+  border-top: 1px solid var(--gray-300);
+}
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+}
+.split-col { padding: 0; }
+.split-col .label {
+  font-family: var(--sans);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.3rem;
+}
+.split-col .tag {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.4rem;
+  text-transform: uppercase;
+}
+.split-col p {
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+.split-col .chain {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--gray-300);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0;
+  align-items: center;
+}
+.split-col .chain li {
+  font-size: 0.92rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.split-col .chain li::after {
+  content: '→';
+  display: inline-block;
+  color: var(--gray-300);
+  margin: 0 0.55rem;
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+.split-col .chain li:last-child::after { content: ''; }
+
+.split-quote {
+  margin: 3.5vh auto 0;
+  max-width: 60ch;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.5;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.split-quote::before, .split-quote::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--black);
+  margin: 0 auto 1rem;
+}
+.split-quote::after { margin: 1rem auto 0; }
+
+/* ===== SECTION 3: 기획 vs 교육 ===== */
+.contrast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 45vh;
+}
+.contrast-side {
+  padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contrast-left { background: var(--white); color: var(--gray-700); }
+.contrast-right { background: var(--black); color: var(--white); }
+
+.contrast-side .word {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.5rem;
+}
+.contrast-right .word { font-weight: 900; letter-spacing: 0.15em; }
+.contrast-side .en {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 1.6rem;
+  opacity: 0.5;
+  font-weight: 500;
+}
+.contrast-side .quote {
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+.contrast-side .attr {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+  font-weight: 500;
+}
+.contrast-side .attr div { margin-bottom: 0.5rem; }
+
+.contrast-core {
+  padding: 4vh 8vw;
+  background: var(--gray-100);
+  text-align: center;
+}
+.contrast-core p {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+.contrast-core .emph {
+  font-weight: 900;
+  letter-spacing: 0.35em;
+}
+
+/* ===== SECTION 4: TIMELINE ===== */
+.timeline {
+  padding: 5vh 8vw;
+  border-top: 1px solid var(--gray-300);
+}
+.timeline-title {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--gray-500);
+  text-align: center;
+  margin-bottom: 3vh;
+  font-weight: 500;
+}
+.timeline-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 3vw;
+  margin-bottom: 2.5vh;
+}
+.timeline-row .age-box {
+  background: var(--white);
+  border: 1px solid var(--black);
+  padding: 1.3rem 1.2rem;
+  text-align: center;
+  max-width: 240px;
+}
+.timeline-row.flip .age-box { margin-left: auto; }
+.timeline-row:not(.flip) .age-box { margin-right: auto; }
+.timeline-row .age {
+  font-family: var(--sans);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  display: block;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.02em;
+}
+.timeline-row .role {
+  font-size: 0.92rem;
+  color: var(--gray-500);
+}
+.timeline-row .arrow {
+  font-family: var(--sans);
+  font-size: 1.6rem;
+  color: var(--gray-300);
+  font-weight: 300;
+}
+.timeline-row .achievement {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+.timeline-row.flip .age-box { order: 3; }
+.timeline-row.flip .achievement { order: 1; text-align: right; }
+.timeline-row.flip .arrow { order: 2; transform: scaleX(-1); }
+.timeline-caption {
+  text-align: center;
+  margin: 3vh auto 0;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--gray-500);
+  padding-top: 2vh;
+  border-top: 1px solid var(--gray-300);
+  max-width: 600px;
+  font-weight: 500;
+}
+
+/* ===== SECTION 5: FOOTER ===== */
+.footer {
+  padding: 5vh 8vw 3.5vh;
+  background: var(--black);
+  color: var(--white);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2vw;
+  margin-bottom: 3vh;
+}
+.footer-card {
+  border: 1px solid var(--gray-700);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.footer-card:hover { background: rgba(255,255,255,0.04); }
+.footer-card .label {
+  font-family: var(--sans);
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.7rem;
+}
+.footer-card .role {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--gray-300);
+  line-height: 1.6;
+  font-weight: 400;
+}
+.footer-sign {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.6em;
+  padding-top: 2.5vh;
+  border-top: 1px solid var(--gray-700);
+  padding-right: 0.6em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-stairs .step-2 { margin-left: 4vw; }
+  .hero-stairs .step-3 { margin-left: 8vw; }
+  .split-grid { grid-template-columns: 1fr; gap: 8vh; }
+  .contrast { grid-template-columns: 1fr; }
+  .contrast-side { min-height: 60vh; }
+  .timeline-row { grid-template-columns: 1fr; gap: 2rem; }
+  .timeline-row.flip .age-box,
+  .timeline-row .age-box { margin: 0 auto; order: 1; }
+  .timeline-row.flip .achievement,
+  .timeline-row .achievement { order: 2; text-align: center; }
+  .timeline-row .arrow { display: none; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: HERO -->
+<section class="hero">
+  <div class="hero-stairs">
+    <div class="step-1">FIRST LEARN.</div>
+    <div class="step-2">THEN SHARE.</div>
+    <div class="step-3">
+      <span class="change-rep">CHANGE.</span><span class="change-rep">CHANGE.</span><span class="change-rep">CHANGE.</span>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-sub">
+    <div class="name">YUN SOJUNG</div>
+    <div class="role">생각의 페이스메이커</div>
+    <div class="role-tag">─ 기획하는 교육자 ─</div>
+  </div>
+</section>
+
+<!-- SECTION 2: LEARN vs SHARE -->
+<section class="split">
+  <div class="split-grid">
+    <div class="split-col">
+      <div class="label">LEARN.</div>
+      <div class="tag">INPUT — 가장 먼저 학습하는 사람</div>
+      <p>세상의 패러다임이 바뀔 때마다, 제일 먼저 뛰어들어 온몸으로 배웁니다.</p>
+      <p>자퇴생에서 파워블로거 1세대로, 선생에서, 기획자로, 사업가로, 투자자로. 그렇게 나와 성인을, 아이를, 그리하여 나의 사업과 다른 브랜드를 키워가는 모든 과정을 날것 그대로 공유합니다.</p>
+      <ul class="chain">
+        <li>자퇴생</li>
+        <li>파워블로거 1세대</li>
+        <li>선생</li>
+        <li>기획자</li>
+        <li>사업가</li>
+        <li>투자자</li>
+      </ul>
+    </div>
+    <div class="split-col">
+      <div class="label">SHARE.</div>
+      <div class="tag">OUTPUT — 남김없이 나누는 공유요정</div>
+      <p>시험기간, 친구들에게 늘 나의 노트를 공유했습니다.</p>
+      <p>19년 전에도, 내가 학교를 자퇴하고 공부했던 과정을 그대로 블로그에 공유했습니다. 오늘도, 내가 공부하고 성장한 과정을 그대로 공유합니다.</p>
+      <ul class="chain">
+        <li>비밀노트</li>
+        <li>블로그 (19년)</li>
+        <li>2만 명 교육 현장</li>
+        <li>타 브랜드 컨설팅</li>
+        <li>TRUS</li>
+        <li>생각구독</li>
+      </ul>
+    </div>
+  </div>
+  <blockquote class="split-quote">
+    나는 내가 딱 해본 것만큼만 공유합니다.
+  </blockquote>
+</section>
+
+<!-- SECTION 3: 기획 vs 교육 -->
+<div class="contrast">
+  <div class="contrast-side contrast-left">
+    <div class="word">기 획</div>
+    <div class="en">PLANNING</div>
+    <div class="quote">"선생님이 수업 전에<br>하는 것."</div>
+    <div class="attr">
+      <div>책상에서</div>
+      <div>혼자</div>
+      <div>평면</div>
+    </div>
+  </div>
+  <div class="contrast-side contrast-right">
+    <div class="word">교 육</div>
+    <div class="en">EDUCATION</div>
+    <div class="quote">"현장에서 조직원들이<br>피·땀·눈물을 흘리며<br>변화하는 과정."</div>
+    <div class="attr">
+      <div>현장에서</div>
+      <div>함께</div>
+      <div>입체</div>
+    </div>
+  </div>
+</div>
+<div class="contrast-core">
+  <p>윤소정은 기획자가 아니라,<br><span class="emph">끝・까・지</span> 교육하는 사람입니다.</p>
+</div>
+
+<!-- SECTION 4: TIMELINE -->
+<section class="timeline">
+  <div class="timeline-title">TIMELINE — 생각의 궤적</div>
+
+  <div class="timeline-row">
+    <div class="age-box">
+      <span class="age">20대</span>
+      <span class="role">혁신적 선생</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="achievement">나를 공부하는 학교를 만들어,<br><strong>2만 명을 변화시킴.</strong></div>
+  </div>
+
+  <div class="timeline-row flip">
+    <div class="age-box">
+      <span class="age">30대</span>
+      <span class="role">사업가 · 기획자</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="achievement">TRUS — 사람이 성장하는 회사.<br><strong>본인·타 브랜드 100%+ 성장.</strong></div>
+  </div>
+
+  <div class="timeline-row">
+    <div class="age-box">
+      <span class="age">40대</span>
+      <span class="role">나의 꿈</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="achievement"><strong>교육이 가장 즐거운 세상을<br>만드는 것.</strong></div>
+  </div>
+
+  <div class="timeline-caption">변화의 진폭은 매 10년마다 커진다.</div>
+</section>
+
+<!-- SECTION 5: FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-card">
+      <div class="label">LUSH KOREA</div>
+      <div class="role">Creative Director<br>CEO Business Coach</div>
+    </div>
+    <div class="footer-card">
+      <div class="label">TRUS</div>
+      <div class="role">대표<br>Founder</div>
+    </div>
+    <div class="footer-card">
+      <div class="label">CONTENT</div>
+      <div class="role">윤소정의 생각구독<br>유튜브 소울정</div>
+    </div>
+  </div>
+  <div class="footer-sign">윤 소 정</div>
+</footer>
+
+</body>
+</html>

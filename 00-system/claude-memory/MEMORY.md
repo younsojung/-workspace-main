@@ -4,3 +4,8 @@
 - [Integrations](integrations.md) — Notion/Gmail/Calendar/Drive MCP 연결됨. gws CLI 미설치(2026-05-19 시점)
 - [Communication Style](communication-style.md) — 한글, 간결, 친밀한 톤. 비기술 사용자에게는 단계별 명확한 지시
 - [Terminal Setup](terminal_setup.md) — Claude Code는 iTerm2 + D2Coding에서 실행. Terminal.app은 한글 깨져서 안 씀
+- [생각구독 Corpus](생각구독-corpus.md) — 80호 전수 분석 (카드 80 + 통합 분석 5종) at 30-knowledge/생각구독-corpus/. yoonsojung-bot voice_reference 80호 베이스로 개정 완료
+- [외부 공개 숫자 가드](feedback_public_numbers.md) — 활성·누적 구독자, 누적 매출, 재구독률(10%) 모두 비공개. 외부 카피 금지
+- [사이트 정체성](project_site_identity.md) — younsojung.co.kr = e-book 판매 사이트. 생각구독 깔때기로 재정의 X. 별도 트랙
+- [정의는 사용자가 박는다](feedback-definition-consent.md) — 본질·정체성 정의는 후보 펼치고 사용자가 박음. AI가 일방 결정 ❌
+- [윤소정 카피 원칙](feedback-copywriting-principle.md) — 직관·실용·누구나 이해. 시적/추상 ❌. 감성 = 친밀한 직설

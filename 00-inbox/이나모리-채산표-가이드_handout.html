@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이나모리 가즈오의 채산표 — 학습 가이드</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root {
+  --color-bg: #FFFFFF;
+  --color-bg-dark: #111111;
+  --color-bg-muted: #F5F5F5;
+  --color-text: #111111;
+  --color-text-light: #FFFFFF;
+  --color-text-muted: #666666;
+  --color-border: #E0E0E0;
+  --color-accent: #111111;
+  --font-sans: 'Helvetica Neue', 'Pretendard', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; margin: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #888;
+  line-height: 1.6;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 210mm; height: 297mm;
+  padding: 18mm 20mm 20mm 20mm;
+  margin: 10px auto;
+  background: var(--color-bg);
+  position: relative; overflow: hidden;
+  page-break-after: always; page-break-inside: avoid;
+}
+@media print { body { background: white; } .page { margin: 0; box-shadow: none; } }
+@media screen { .page { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+
+.cover {
+  width: 210mm; height: 297mm;
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 24mm; margin: 10px auto;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+@media screen { .cover { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .cover { margin: 0; box-shadow: none; } }
+.cover-label { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.4; margin-bottom: 12mm; }
+.cover-title { font-family: var(--font-sans); font-size: 28pt; font-weight: 700; line-height: 1.15; margin-bottom: 5mm; letter-spacing: -0.02em; }
+.cover-title em { font-style: normal; font-weight: 300; }
+.cover-subtitle { font-family: var(--font-sans); font-size: 12pt; font-weight: 300; opacity: 0.7; margin-bottom: 18mm; line-height: 1.5; }
+.cover-meta { display: grid; grid-template-columns: auto 1fr; gap: 2mm 6mm; font-size: 8.5pt; opacity: 0.5; }
+.cover-meta dt { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.05em; text-transform: uppercase; }
+.cover-meta dd { margin: 0; }
+.cover-brand { position: absolute; bottom: 18mm; left: 24mm; font-size: 10pt; font-weight: 600; letter-spacing: 0.05em; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9mm; padding-bottom: 3mm; border-bottom: 1pt solid var(--color-border); }
+.page-brand { font-size: 8pt; font-weight: 600; opacity: 0.3; letter-spacing: 0.1em; }
+.page-number { font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.1em; opacity: 0.3; }
+.page-footer { position: absolute; bottom: 12mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 6.5pt; opacity: 0.25; font-family: var(--font-mono); }
+
+.section-number { font-family: var(--font-mono); font-size: 6.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1.5mm; }
+.section-title { font-family: var(--font-sans); font-size: 16pt; font-weight: 700; line-height: 1.25; margin-bottom: 5mm; color: var(--color-text); letter-spacing: -0.01em; }
+.section-title em { font-weight: 300; font-style: normal; }
+h3 { font-family: var(--font-sans); font-size: 9pt; font-weight: 700; margin-bottom: 2.5mm; margin-top: 5mm; color: var(--color-text); }
+h3:first-of-type { margin-top: 0; }
+h4 { font-size: 8pt; font-weight: 600; margin-bottom: 1.5mm; }
+p { font-size: 8pt; line-height: 1.65; margin-bottom: 2.5mm; color: var(--color-text-muted); }
+
+.quote { background: var(--color-bg-dark); color: var(--color-text-light); padding: 4.5mm 5.5mm; border-radius: 1pt; margin: 4mm 0; }
+.quote p { color: var(--color-text-light); margin: 0; font-size: 8pt; line-height: 1.6; }
+.quote strong { color: var(--color-text-light); }
+.quote-light { background: var(--color-bg-muted); color: var(--color-text); border-left: 2pt solid var(--color-text); padding: 3mm 4mm; margin: 3mm 0; font-size: 8pt; line-height: 1.6; }
+.quote-light p { color: var(--color-text-muted); margin: 0; }
+
+ul, ol { padding-left: 5mm; margin-bottom: 3mm; }
+li { font-size: 8pt; line-height: 1.65; margin-bottom: 1mm; color: var(--color-text-muted); }
+li strong { color: var(--color-text); font-weight: 600; }
+.principles { list-style: none; padding: 0; counter-reset: principle; }
+.principles li { counter-increment: principle; padding: 2.2mm 0; border-bottom: 0.5pt solid var(--color-border); display: flex; align-items: baseline; gap: 3mm; font-size: 8pt; }
+.principles li:last-child { border-bottom: none; }
+.principles li::before { content: '0' counter(principle); font-family: var(--font-mono); font-size: 7pt; color: var(--color-text-muted); flex-shrink: 0; width: 6mm; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 3mm 0; }
+.dark-inline { background: var(--color-bg-dark); color: var(--color-text-light); margin: 4mm 0; padding: 5mm; border-radius: 1pt; }
+.dark-inline h3, .dark-inline h4 { color: var(--color-text-light); }
+.dark-inline p { color: rgba(255,255,255,0.85); }
+.dark-inline li { color: rgba(255,255,255,0.75); }
+.dark-inline li strong { color: var(--color-text-light); }
+.dark-inline code { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.1); padding: 0.5mm 1.5mm; border-radius: 1pt; }
+.highlight-box { border: 1.5pt solid var(--color-text); padding: 4mm 5mm; margin: 4mm 0; border-radius: 1pt; }
+.highlight-box h4 { font-size: 9pt; font-weight: 700; margin-bottom: 2.5mm; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 7.5pt; }
+th { background: var(--color-bg-dark); color: var(--color-text-light); padding: 2.5mm 3mm; text-align: left; font-weight: 600; font-size: 7pt; letter-spacing: 0.05em; }
+td { padding: 2.5mm 3mm; border-bottom: 0.5pt solid var(--color-border); color: var(--color-text-muted); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td strong { color: var(--color-text); font-weight: 600; }
+.tbl-emph td { background: var(--color-bg-muted); color: var(--color-text); font-weight: 600; }
+
+.divider { height: 0.5pt; background: var(--color-border); margin: 5mm 0; }
+.divider-tight { height: 0.5pt; background: var(--color-border); margin: 3mm 0; }
+
+.formula {
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  padding: 6mm 7mm; margin: 4mm 0; border-radius: 1pt;
+  font-family: var(--font-mono); font-size: 10pt; text-align: center;
+  letter-spacing: 0.02em;
+}
+.formula strong { color: var(--color-text-light); font-weight: 600; }
+.formula .small { font-size: 7pt; opacity: 0.5; display: block; margin-top: 2mm; letter-spacing: 0.1em; }
+
+code { font-family: var(--font-mono); font-size: 7.5pt; color: var(--color-text); background: var(--color-bg-muted); padding: 0.5mm 1.5mm; border-radius: 1pt; }
+
+.closing {
+  width: 210mm; height: 297mm;
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  padding: 24mm; margin: 10px auto; page-break-after: avoid;
+}
+@media screen { .closing { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .closing { margin: 0; box-shadow: none; } }
+.closing-title { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 6mm; letter-spacing: -0.02em; }
+.closing-title em { font-weight: 300; font-style: normal; }
+.closing-sub { font-size: 10pt; opacity: 0.4; margin-bottom: 16mm; }
+.closing-info { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.1em; opacity: 0.3; line-height: 2.2; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div class="cover-label">Study Guide · Inamori Kazuo</div>
+  <h1 class="cover-title">이나모리 가즈오의<br><em>채산표</em><br>— 시간을 가치로 보는<br>한 장의 표</h1>
+  <p class="cover-subtitle">정의 · 학습법 · 회사 적용 · 개인 적용<br>한 문서로 정리된 종합 학습 가이드</p>
+  <dl class="cover-meta">
+    <dt>Date</dt><dd>2026-05-19</dd>
+    <dt>Editor</dt><dd>윤소정</dd>
+    <dt>Sources</dt><dd>한국어 + 영어 + 일본어 25개 출처 교차검증</dd>
+    <dt>Pages</dt><dd>11 pages</dd>
+  </dl>
+  <div class="cover-brand">YUNSOJUNG · STUDY</div>
+</div>
+
+<!-- ============ PAGE 01 — 정의 + 탄생 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">01 / 11</div>
+  </div>
+
+  <div class="section-number">Part 01 · Definition</div>
+  <h2 class="section-title">채산표란 <em>무엇인가</em></h2>
+
+  <div class="quote">
+    <p><strong>"전 사원이 쉽게 이해할 수 있는, 가계부와 같은 채산표."</strong><br>— 이나모리 가즈오</p>
+  </div>
+
+  <h3>한 줄 정의</h3>
+  <p>채산표(<strong>採算表</strong>, 정식 명칭 시간당 채산표 / <strong>時間当たり採算表</strong> / Hourly Efficiency Report)는 교세라가 <strong>아메바(5~50명 소집단)</strong> 단위로 매월 작성하는 관리회계 보고서다. 핵심 지표는 단 하나 — <strong>시간당 부가가치</strong>.</p>
+
+  <div class="formula">
+    시간당 채산 = (매출 − 인건비 제외 경비) ÷ 총노동시간
+    <span class="small">HOURLY EFFICIENCY = VALUE ADDED ÷ TOTAL LABOR HOURS</span>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>1963년, 시가 공장에서 시작됐다</h3>
+  <p>1963년 교세라는 본사 교토 공장과 별도로 시가(滋賀) 공장을 신설했다. 두 공장은 생산 방식이 달라 단순 이익 비교가 불가능했다. <strong>"어느 쪽이 더 잘하고 있는가"를 공정하게 측정할 단일 지표</strong>가 필요했다. 27살 이나모리는 인건비를 제외한 경비를 차감한 뒤 총노동시간으로 나눠 "단위 시간당 얼마의 부가가치를 만들었는가"를 비교했다. 이것이 시간당 채산표의 시작이다.</p>
+
+  <p>채산표는 곧 <strong>아메바경영의 신경계</strong>가 됐다. 아메바경영은 조직을 5~50명의 소집단으로 나눠 각 집단이 독립채산 미니 기업처럼 운영되도록 하는 시스템이고, 채산표 없이는 작동하지 않는다. 현재 교세라 컨설팅(KCCS)이 전 세계 <strong>400개 이상 기업</strong>에 도입 컨설팅을 제공한다.</p>
+
+  <div class="divider"></div>
+
+  <h3>일반 손익계산서(P&amp;L)와의 결정적 차이 3가지</h3>
+  <table>
+    <tr><th style="width: 18%;">구분</th><th style="width: 41%;">일반 손익계산서</th><th>이나모리 채산표</th></tr>
+    <tr><td><strong>인건비</strong></td><td>비용으로 차감</td><td><strong>경비에서 제외</strong> — 사람은 가치 창출자</td></tr>
+    <tr><td><strong>측정 단위</strong></td><td>회사 전체 · 사업부 단위, 분기/연 기준</td><td><strong>5~50명 아메바 단위</strong>, 매월 예측 vs 실적</td></tr>
+    <tr><td><strong>최종 지표</strong></td><td>순이익(Net Income)</td><td><strong>시간당 부가가치</strong> (시간 효율)</td></tr>
+    <tr><td><strong>공개 범위</strong></td><td>임원·재무팀</td><td><strong>전 직원 공개</strong></td></tr>
+    <tr><td><strong>이해 난이도</strong></td><td>회계 지식 필요</td><td><strong>가계부 수준</strong></td></tr>
+  </table>
+
+  <div class="quote-light">
+    <p><strong>핵심</strong> · 채산표는 "회계 도구"가 아니다. <strong>모든 직원이 자기 시간이 만드는 가치를 매일 보는 거울</strong>이다.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 01 · 채산표란 무엇인가</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 02 — 시간당 부가가치 + 7원칙 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">02 / 11</div>
+  </div>
+
+  <div class="section-number">Part 01 · Definition (계속)</div>
+  <h2 class="section-title">핵심 공식 & <em>회계 7원칙</em></h2>
+
+  <h3>시간당 부가가치 — 공식 분해</h3>
+  <div class="formula">
+    시간당 부가가치 = { 생산고(매출) − 제경비(인건비 제외) } ÷ 총노동시간
+  </div>
+  <ul>
+    <li><strong>생산고</strong> · 아메바가 시장(외부) 또는 사내 타 부문에 판매한 총액</li>
+    <li><strong>제경비</strong> · 재료비, 외주비, 감가상각비, 여비교통비, 통신비 등 — <strong>인건비는 포함하지 않음</strong></li>
+    <li><strong>총노동시간</strong> · 소속 전원의 정규 + 잔업 시간 합산</li>
+  </ul>
+
+  <div class="quote">
+    <p>"연필 한 자루, 클립 하나도 시간당 채산에 영향을 미친다. 공장 구석에 쌓인 불량품이나 바닥에 흘린 원료들이 <strong>돈으로 보일 때까지</strong> 채산 의식을 높여야 한다." — 이나모리 가즈오</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>이나모리 회계학 7원칙</h3>
+  <p>채산표를 운영하는 7개의 기둥. 전제 원칙은 <strong>"매상 최대, 경비 최소"</strong> (売上最大、経費最小) — 이익은 두 가지의 차이에서 나오는 결과이지, 목적 자체가 아니다.</p>
+
+  <ol class="principles">
+    <li><strong>캐시 베이스 경영</strong> · 현금흐름 중심 판단. 복잡한 회계 기법보다 실제 현금 움직임 우선.</li>
+    <li><strong>일대일 대응</strong> · 물건·돈 이동 시 전표가 반드시 1:1 대응. 허위·지연 기록 불허.</li>
+    <li><strong>근육질 경영</strong> · 불필요한 자산이 없는 건전한 재무 상태 유지.</li>
+    <li><strong>완벽주의</strong> · 회계 숫자는 100% 정확. 타협 없음.</li>
+    <li><strong>더블 체크</strong> · 복수 인원의 상호 확인으로 실수·부정 방지.</li>
+    <li><strong>채산향상</strong> · 아메바경영으로 전 직원이 채산 향상에 참여. <em>채산표가 핵심 도구</em>.</li>
+    <li><strong>투명 경영</strong> · 회사 실태를 전 직원에게 공개. 채산표도 전원에게 공개.</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <h3>비행기 조종석의 비유</h3>
+  <div class="quote-light">
+    <p>이나모리는 회계를 <strong>"비행기 조종석의 계기판"</strong>에 비유했다. 파일럿이 계기판 없이 비행기를 조종할 수 없듯, 경영자는 회계 수치 없이 방향을 잡을 수 없다. 채산표는 매일·매월의 "현재 고도, 속도, 연료 잔량"이다.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 01 · 공식 + 7원칙</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 03 — 학습법 1: 이나모리 본인 + 세이와주쿠 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">03 / 11</div>
+  </div>
+
+  <div class="section-number">Part 02 · How to Learn</div>
+  <h2 class="section-title">어떻게 <em>학습</em>하는가</h2>
+
+  <div class="quote">
+    <p>"왜 그렇게 되는가(<strong>なぜそうなるのか</strong>)." — 이나모리가 회계를 배운 방식. 기술자 출신으로 창업 초기 회계 지식이 전무했던 그가 채산표를 만든 비결은, 공식 암기가 아니라 <strong>이 질문을 반복</strong>한 것이다.</p>
+  </div>
+
+  <h3>이나모리 본인의 학습 원칙 3가지</h3>
+  <ol class="principles">
+    <li><strong>교과서보다 본질을 먼저</strong> — "정부가 정한 것이라도 무엇이 올바른지라는 본질에 비추어 이해할 것."</li>
+    <li><strong>상식에 의존하지 않는다</strong> — 관행적 회계처리를 맹목적으로 따르지 말 것. 예: 감가상각 시 법정 내용연수가 아니라 <em>실제 내용연수</em>로.</li>
+    <li><strong>수치와 실물의 일치</strong> — 일대일 대응 원칙. 전표와 물건의 움직임이 항상 일치해야 경영의 실태가 보인다.</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <h3>세이와주쿠(盛和塾) 학습 구조</h3>
+  <p>1983년 교토 젊은 경영자 25명에서 시작 → 2019년 폐강 시점에 <strong>국내 56지부 + 해외 48지부 + 약 15,000명</strong>이 참가한 경영자 학습 모임. 이나모리가 직접 주재. 채산표 학습의 표준이 여기서 정립됐다.</p>
+
+  <div class="dark-inline">
+    <h4>세이와주쿠 3대 학습 구조</h4>
+    <ol>
+      <li><strong>숙장예회(塾長例会)</strong> · 이나모리 직접 참석. <em>강연 → 경영 체험 발표 → 경영 문답</em>. 경영자가 본인 회사의 채산 현황을 발표하면 이나모리가 즉석 코멘트. 추상적 강의가 아니라 <strong>실시간 사례 피드백</strong>.</li>
+      <li><strong>자주예회(自主例会)</strong> · 각 지부 자체 운영. 매월 1회 경영 체험 발표. 동료 경영자들 간 채산 결과 비교 토론. <strong>수평적 학습</strong>.</li>
+      <li><strong>기관지 마라톤</strong> · 8~10명 그룹이 주간 1권씩 세이와주쿠 기관지를 읽고 감상 공유. 이나모리의 경영문답 사례를 케이스 스터디로.</li>
+    </ol>
+  </div>
+
+  <p>1992년부터 27년간 계간 기관지 156호, 약 350만부 발행. 2013년 <em>"이나모리 가즈오 경영문답집"</em> 전 6권은 세이와주쿠 학습의 핵심 텍스트다.</p>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 02 · 이나모리 본인 + 세이와주쿠</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 04 — 학습법 2: 5단계 커리큘럼 + 실습법 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">04 / 11</div>
+  </div>
+
+  <div class="section-number">Part 02 · How to Learn (계속)</div>
+  <h2 class="section-title">5단계 <em>커리큘럼</em> + 실습</h2>
+
+  <h3>단계별 학습 순서 (저서 구조에서 귀납)</h3>
+  <p>이나모리 본인이 "이 순서로 배워라"고 명시한 공식 커리큘럼은 없다. 다만 저서 구조와 아메바 경영 도입 논리에서 귀납하면 다음 순서가 가장 합리적이다.</p>
+
+  <table>
+    <tr><th style="width: 7%;">#</th><th style="width: 25%;">단계</th><th>핵심 학습 / 자료</th></tr>
+    <tr><td><strong>1</strong></td><td><strong>경영 원칙 내면화</strong></td><td>『이나모리 가즈오의 회계 경영(稲盛和夫の実学)』 정독. <em>"매상 최대, 경비 최소"</em> 원칙을 먼저 몸에 새긴다. 이 단계에서 채산표는 아직 보지 않는다 — <strong>도구 전에 철학</strong>.</td></tr>
+    <tr><td><strong>2</strong></td><td><strong>회계 7원칙 이해</strong></td><td>캐시 베이스 → 일대일 대응 → 근육질 → 완벽주의 → 더블 체크 → 채산향상 → 투명 경영 순.</td></tr>
+    <tr><td><strong>3</strong></td><td><strong>시간당 채산 개념 파악</strong></td><td>공식 (매출 − 경비) ÷ 총 노동시간. 재무 지식 없는 직원도 이해할 수 있게 <strong>단순화한 것</strong>이 핵심.</td></tr>
+    <tr><td><strong>4</strong></td><td><strong>부서별 채산표 작성 실습</strong></td><td>각 아메바가 일별 매출·비용 기록 → 주간 집계 → 월말 채산표 완성. 『실천 아메바 경영』이 안내서.</td></tr>
+    <tr><td><strong>5</strong></td><td><strong>전사 채산으로 확장</strong></td><td>개별 아메바 채산이 안정되면 사내 매매 제도(내부 거래 가격) 도입 → 부서 간 연결.</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>실습 / 연습 방법 4가지</h3>
+
+  <div class="two-col">
+    <div>
+      <h4>1. 일별 수치 기록 훈련</h4>
+      <p>이나모리는 <strong>"일일 채산을 만드는 것(日々採算をつくる)"</strong>이 핵심 훈련이라 강조했다. 월말 보고서가 아니라 <em>매일 그날의 매출과 경비를 기록하는 습관</em>이 우선.</p>
+    </div>
+    <div>
+      <h4>2. 아침 회의 (Morning Meeting)</h4>
+      <p>아메바 경영 도입 기업은 매일 아침 전날 채산 수치를 팀 단위로 공유하고 토론한다. 수치를 보고 <strong>"왜 이 결과가 나왔나"</strong>를 토론하는 것이 핵심 실습.</p>
+    </div>
+    <div>
+      <h4>3. 본인 회사 사례 발표</h4>
+      <p>세이와주쿠 방식. 학습자가 자기 회사의 채산 결과를 발표하고 동료에게 피드백 받기. <strong>가상 데이터가 아닌 실제 데이터</strong> 사용이 핵심 철학.</p>
+    </div>
+    <div>
+      <h4>4. 가계부 비유 활용</h4>
+      <p>이나모리가 직접 강조 — 채산표는 <strong>"전사원이 이해할 수 있는 가계부"</strong>다. 초보자는 본인 가계부를 아메바 방식으로 재구성해보는 것이 유효한 출발점.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 02 · 5단계 + 실습</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 05 — 학습법 3: 흔한 함정 + 추천 도서 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">05 / 11</div>
+  </div>
+
+  <div class="section-number">Part 02 · How to Learn (마무리)</div>
+  <h2 class="section-title">흔한 <em>함정</em> + 추천 도서</h2>
+
+  <h3>학습자가 자주 빠지는 함정 4가지</h3>
+
+  <table>
+    <tr><th style="width: 5%;">#</th><th style="width: 27%;">함정</th><th style="width: 30%;">오해</th><th>실제</th></tr>
+    <tr><td><strong>1</strong></td><td><strong>채산표 = 비용 절감 도구</strong></td><td>채산표는 비용을 줄이는 도구다.</td><td>"<strong>매출 최대화 먼저, 비용 최소화 둘째</strong>." 비용 절감만 추구하면 성장 기회를 놓친다.</td></tr>
+    <tr><td><strong>2</strong></td><td><strong>필로소피 없이 숫자만</strong></td><td>채산표 양식과 공식만 도입하면 된다.</td><td>철학 없이 숫자 경쟁만 시키면 <strong>부서 간 갈등 + 단기 이익 추구</strong>로 망가진다. 소니가 아메바 도입 후 실패한 이유.</td></tr>
+    <tr><td><strong>3</strong></td><td><strong>소규모 조직 그대로 적용</strong></td><td>작은 회사도 아메바를 나누면 된다.</td><td>아메바 30개 이상에서 경쟁·협력이 동시에 작동. 수십 명 규모에서 3~4개 나누면 <strong>각자도생</strong>으로 흐름.</td></tr>
+    <tr><td><strong>4</strong></td><td><strong>경영자만의 도구</strong></td><td>채산표는 경영자/관리자만 본다.</td><td>이나모리 시스템의 핵심은 <strong>"전사원이 채산을 안다"</strong>는 투명 경영. 전 직원이 자기 아메바 채산을 이해해야 작동.</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>추천 도서 — 한국어</h3>
+  <table>
+    <tr><th style="width: 38%;">도서</th><th>비고</th></tr>
+    <tr><td><strong>『이나모리 가즈오의 회계 경영』</strong><br>(稲盛和夫の実学 번역)</td><td>채산표 입문 1순위. 약 200쪽, 7가지 원칙 체계적 설명. 2022년 국내 번역 출간.</td></tr>
+    <tr><td><strong>『아메바 경영』</strong></td><td>실학 이후 2단계. 채산표 실운용 방법.</td></tr>
+    <tr><td><strong>『실천 아메바 경영』</strong></td><td>전사원이 스스로 채산을 만든다. <strong>실습 가이드북. 양식 포함</strong>.</td></tr>
+    <tr><td>이나모리 가즈오 한국 공식 사이트</td><td><code>korea.kyocera.com/inamori/</code> · 무료. 7원칙 요약 및 철학 개요.</td></tr>
+  </table>
+
+  <h3>추천 도서 — 일본어 / 영어</h3>
+  <table>
+    <tr><th style="width: 38%;">도서</th><th>비고</th></tr>
+    <tr><td><strong>『稲盛和夫の実学 経営と会計』</strong> (日経ビジネス人文庫)</td><td>원서 입문서. 약 200쪽.</td></tr>
+    <tr><td><strong>『稲盛和夫 経営問答集』</strong> 전 6권</td><td>세이와주쿠 핵심 텍스트. <strong>실제 경영자 사례 기반</strong>.</td></tr>
+    <tr><td><strong>Amoeba Management</strong> (Routledge, 2012)</td><td>영문판 공식 번역. Chapter 4가 채산 시스템 핵심.</td></tr>
+    <tr><td>MIT Sloan Management Review</td><td>"Amoeba Management Lessons from Japan's Kyocera" — 학술 시각 입문, 무료.</td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 02 · 함정 + 도서</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 06 — 회사 적용 1: 양식 + 예시 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">06 / 11</div>
+  </div>
+
+  <div class="section-number">Part 03 · Company Application</div>
+  <h2 class="section-title">회사에 어떻게 <em>적용</em>하는가</h2>
+
+  <h3>채산표의 수직 구조</h3>
+  <div class="dark-inline">
+    <p><code>총출하(그로스 생산고) &nbsp;=&nbsp; 사외출하 + 사내판매</code></p>
+    <p><code>(−) 사내구매 &nbsp;=&nbsp; 다른 아메바에서 매입한 금액</code></p>
+    <p><code><strong>= 총생산(네트) &nbsp;←&nbsp; 해당 아메바가 진짜 만든 가치</strong></code></p>
+    <p><code>(−) 경비 &nbsp;=&nbsp; 원재료비 · 외주가공비 · 통신비 · 교통비 (노무비 제외)</code></p>
+    <p><code><strong>= 차인매출(부가가치)</strong></code></p>
+    <p><code><strong>÷ 총시간 &nbsp;=&nbsp; 시간당 채산</strong></code></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>교세라 공식 예시 — 제조부문 아메바</h3>
+  <table>
+    <tr><th style="width: 50%;">항목</th><th style="width: 25%;">일본 원문</th><th>한국 환산 예시</th></tr>
+    <tr><td>사외출하</td><td>35,000천 엔</td><td>3,500만 원</td></tr>
+    <tr><td>사내판매</td><td>25,000천 엔</td><td>2,500만 원</td></tr>
+    <tr class="tbl-emph"><td><strong>총출하 (그로스)</strong></td><td><strong>60,000천 엔</strong></td><td><strong>6,000만 원</strong></td></tr>
+    <tr><td>(−) 사내구매</td><td>10,000천 엔</td><td>1,000만 원</td></tr>
+    <tr class="tbl-emph"><td><strong>총생산 (네트)</strong></td><td><strong>50,000천 엔</strong></td><td><strong>5,000만 원</strong></td></tr>
+    <tr><td>(−) 경비 (원재료·외주 등)</td><td>30,000천 엔</td><td>3,000만 원</td></tr>
+    <tr class="tbl-emph"><td><strong>차인매출 (부가가치)</strong></td><td><strong>20,000천 엔</strong></td><td><strong>2,000만 원</strong></td></tr>
+    <tr><td>총시간</td><td>4,000 시간</td><td>400 시간</td></tr>
+    <tr class="tbl-emph"><td><strong>시간당 채산</strong></td><td><strong>5,000 엔/H</strong></td><td><strong>50,000 원/H</strong></td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>한국 소규모 부서 가상 예시 — 월매출 1억, 15명 팀</h3>
+  <table>
+    <tr><th style="width: 50%;">항목</th><th style="width: 25%;">금액</th><th>비고</th></tr>
+    <tr><td>사외출하</td><td>7,000만 원</td><td>외부 고객 직매출</td></tr>
+    <tr><td>사내판매</td><td>3,000만 원</td><td>다른 부서(아메바)에 납품</td></tr>
+    <tr class="tbl-emph"><td><strong>총출하</strong></td><td><strong>1억 원</strong></td><td></td></tr>
+    <tr><td>(−) 사내구매</td><td>2,000만 원</td><td>타 부서에서 조달</td></tr>
+    <tr class="tbl-emph"><td><strong>총생산</strong></td><td><strong>8,000만 원</strong></td><td></td></tr>
+    <tr><td>(−) 경비 (원재료·외주·기타)</td><td>3,500만 원</td><td></td></tr>
+    <tr class="tbl-emph"><td><strong>차인매출 (부가가치)</strong></td><td><strong>4,500만 원</strong></td><td></td></tr>
+    <tr><td>총시간</td><td>2,400 시간</td><td>15명 × 160시간</td></tr>
+    <tr class="tbl-emph"><td><strong>시간당 채산</strong></td><td><strong>18,750 원/H</strong></td><td></td></tr>
+  </table>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 03 · 양식 + 예시</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 07 — 회사 적용 2: 사내매매 + 노무비 철학 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">07 / 11</div>
+  </div>
+
+  <div class="section-number">Part 03 · Company Application (계속)</div>
+  <h2 class="section-title">사내 매매 & <em>노무비 철학</em></h2>
+
+  <h3>아메바 분할 원칙</h3>
+  <ul>
+    <li><strong>단위 크기</strong> · 5~50명 (교세라 기준 5~10명이 이상적)</li>
+    <li><strong>분할 기준</strong> · 제품별 / 공정별 / 기능별 / 수익책임별</li>
+    <li><strong>아메바 수</strong> · 교세라는 1990년대 기준 <strong>700개 이상</strong>의 아메바로 운영</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h3>사내 매매(社内売買) 가격은 어떻게 정하나</h3>
+  <p>가장 논쟁이 많은 부분. 확인된 원칙은 다음과 같다.</p>
+
+  <ol class="principles">
+    <li><strong>기본 원칙: 시장가격(マーケットプライス)</strong> · 내부 거래도 외부 시장 가격에 준한다.</li>
+    <li><strong>협상 방식</strong> · 아메바 리더 간 <em>직접 협상</em>으로 결정. 본사가 일방적으로 정하지 않음.</li>
+    <li><strong>최종 산출물 기준</strong> · 최종 고객이 지불할 가격을 <em>역산</em>하여 내부 단계별 가격 설정.</li>
+    <li><strong>시장 변동 반영</strong> · 외부 시장 가격 변동이 내부 사내 매매 가격에 <em>즉시</em> 반영됨.</li>
+  </ol>
+
+  <div class="quote-light">
+    <p><strong>예시</strong> · 고객이 완제품에 100만 원 지불 → 조립 아메바가 80만 원에 사내 판매 → 가공 아메바가 50만 원에 사내 판매 → 소재 아메바가 원가+마진으로 생산.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>노무비를 경비에 넣지 않는 이유 — 철학적 핵심</h3>
+
+  <div class="dark-inline">
+    <h4>표면적 이유 · 통제 불가능성</h4>
+    <p>"노무비(인건비)는 회사의 채용 방침과 인사 규정에 의해 거의 결정된다. 따라서 아메바 책임자가 노무비를 통제하는 것은 불가능하다. <strong>통제 불가 비용을 채산표에 넣으면 평가가 왜곡된다.</strong>"</p>
+  </div>
+
+  <div class="quote">
+    <p><strong>철학적 이유 · 사람은 비용이 아니다</strong><br><br>"사람을 인건비라는 경비로 보는 것이 아니라, 시간으로 노동생산성을 얼마나 늘려갈 수 있는가라는 관점으로 본다. 시간으로 표현함으로써 <strong>임금을 어떻게 줄일까가 아니라 생산성을 무한히 늘려가는 것</strong>을 목표로 한다." — 이나모리 가즈오</p>
+  </div>
+
+  <div class="two-col">
+    <div class="highlight-box">
+      <h4>× 비용 삭감 사고방식</h4>
+      <p>(노무비를 경비에 포함)<br>"사람을 줄이면 이익이 난다."</p>
+    </div>
+    <div class="highlight-box">
+      <h4>○ 이나모리식 사고방식</h4>
+      <p>(시간으로 측정)<br>"같은 사람이 더 많은 가치를 만들면 시간당 채산이 올라간다."</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 03 · 사내매매 + 노무비 철학</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 08 — 회사 적용 3: PDCA + JAL ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">08 / 11</div>
+  </div>
+
+  <div class="section-number">Part 03 · Company Application (마무리)</div>
+  <h2 class="section-title">월간 <em>PDCA</em> & JAL 사례</h2>
+
+  <h3>연간 → 월간 연결 구조</h3>
+  <div class="dark-inline">
+    <p><strong>[연초]</strong></p>
+    <p><code>회사 마스터플랜(연간 목표) 수립 → 각 아메바별 연간 목표 배분</code></p>
+    <p style="margin-top: 3mm;"><strong>[매월 반복 — 월간 PDCA]</strong></p>
+    <p><code><strong>Plan</strong> · 아메바 리더가 다음 달 채산 계획표 작성 (목표 매출, 경비, 시간당 채산)</code></p>
+    <p><code><strong>Do</strong> · 당월 실행</code></p>
+    <p><code><strong>Check</strong> · 월말 실적 채산표 작성 + 계획 대비 차이 분석</code></p>
+    <p><code><strong>Action</strong> · 다음 달 계획에 반영</code></p>
+  </div>
+
+  <h3>월말 채산표 공개 원칙</h3>
+  <ul>
+    <li>월말 마감 후 <strong>즉시 집계</strong> (이상적으로 월초 1~3일 내)</li>
+    <li><strong>전 사원 공개</strong> — 모든 아메바의 채산표를 전직원이 볼 수 있음</li>
+    <li>"보고회의"가 아닌 <strong>CAP회의(Check-Action-Plan)</strong>로 운영 — 보고가 아니라 분석과 대책 논의</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h3>JAL 재건 — 가장 강력한 실증 사례</h3>
+  <p>2010년 1월 도산 → 이나모리 무보수 취임 → 아메바 경영 도입 → <strong>2년 8개월 만에 재상장</strong>. 채산표의 위력이 가장 극적으로 입증된 사례.</p>
+
+  <table>
+    <tr><th style="width: 55%;">지표</th><th>수치 / 시점</th></tr>
+    <tr><td>도산 시 부채</td><td>약 24조 원 (2조 3,000억 엔) · 2010.01</td></tr>
+    <tr><td>이나모리 무보수 취임</td><td>2010.02</td></tr>
+    <tr><td>아메바 경영 도입 완료</td><td>2010 하반기</td></tr>
+    <tr class="tbl-emph"><td><strong>첫 결산 영업이익</strong></td><td><strong>1,884억 엔 · 2011.03 (세계 항공사 최고)</strong></td></tr>
+    <tr><td>도쿄증권거래소 재상장</td><td>2012.09 (도산 후 2년 8개월)</td></tr>
+    <tr><td>2012년 영업이익</td><td>1,716억 엔</td></tr>
+    <tr><td>2013년 영업이익</td><td>1,662억 엔</td></tr>
+  </table>
+
+  <div class="quote-light">
+    <p><strong>핵심 변화</strong> · 6~7명 단위 소팀으로 나누고 각 팀이 <em>"부문 채산표"</em>로 자기 팀의 수익을 매월 직접 확인 → "<strong>내 팀이 얼마를 벌었는가</strong>"라는 당사자 의식 발생.</p>
+  </div>
+
+  <div class="divider-tight"></div>
+
+  <h3>그 외 사례</h3>
+  <ul>
+    <li><strong>교세라</strong> · 1963년 시간당 채산 제도 최초 고안 → 1965년 아메바 경영 정착 → 창업 이후 <strong>단 한 번도 연간 적자 없음</strong>.</li>
+    <li><strong>KDDI</strong> · 이나모리가 DDI(현 KDDI) 창업 시 동일 방식 적용 → 일본 통신시장 3위 사업자로 성장.</li>
+    <li><strong>메리츠금융그룹</strong> · 한국 도입 사례. 팀 단위 독립 채산제 운영(한경 2022.03.28 보도).</li>
+  </ul>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 03 · PDCA + JAL</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 09 — 개인 적용 1: 가계부 차이 + 계산법 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">09 / 11</div>
+  </div>
+
+  <div class="section-number">Part 04 · Personal Application</div>
+  <h2 class="section-title">개인에게 어떻게 <em>적용</em>하는가</h2>
+
+  <div class="quote">
+    <p>"<strong>채산표는 한 사람 한 사람의 매일의 삶의 방식이 누적된 결과다.</strong>"<br>— 이나모리 가즈오</p>
+  </div>
+
+  <p>"개인 채산표"라는 명칭의 공식 사례는 한국어·영어·일본어 어디에도 없다. 단, 이나모리가 채산표를 "가계부처럼 이해하기 쉽게" 설계한 만큼, <strong>원리의 개인 이식은 완전히 가능</strong>하다. 이 섹션은 이나모리 원리에서 합리적으로 연역한 응용이다.</p>
+
+  <div class="divider"></div>
+
+  <h3>가계부와의 본질적 차이</h3>
+  <table>
+    <tr><th style="width: 22%;">구분</th><th>일반 가계부</th><th>채산표 방식</th></tr>
+    <tr><td><strong>핵심 질문</strong></td><td>"얼마 벌고 얼마 썼나?"</td><td>"<strong>1시간으로 얼마 만들었나?</strong>"</td></tr>
+    <tr><td><strong>시간 변수</strong></td><td>없음</td><td>있음 (분모)</td></tr>
+    <tr><td><strong>평가 단위</strong></td><td>금액 (월/연)</td><td>시간당 부가가치</td></tr>
+    <tr><td><strong>목적</strong></td><td>지출 통제</td><td>가치 창출 극대화</td></tr>
+    <tr><td><strong>노동 취급</strong></td><td>수입의 결과</td><td>시간을 자원으로 봄</td></tr>
+  </table>
+
+  <div class="quote-light">
+    <p><strong>중요한 차이</strong> · 같은 월 500만원 수입이라도 100시간 투입과 200시간 투입은 완전히 다른 결과다. 가계부는 이 차이를 안 보여주지만 채산표는 보여준다.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>유형별 시간당 부가가치 계산법</h3>
+
+  <div class="dark-inline">
+    <h4>1. 직장인</h4>
+    <p><code>시간당 부가가치 = (월 급여 − 업무 관련 직접 지출) ÷ 실제 투입 시간</code></p>
+    <p>주의 · 회사가 정한 근무시간이 아니라 <strong>출퇴근/야근 포함 실제 시간</strong>으로 계산.<br>예) 월 250만원 + 교통비 30만원 지출, 주 50시간 × 4주 = 200시간 → <strong>시간당 11,000원</strong></p>
+  </div>
+
+  <div class="dark-inline">
+    <h4>2. 프리랜서</h4>
+    <p><code>시간당 부가가치 = (수주 금액 − 직접 경비) ÷ 해당 프로젝트 투입 시간</code></p>
+    <p>한국 기준 경력별 목표 단가 · 초급(1~3년) <strong>3~5만원</strong> · 중급(3~7년) <strong>5~8만원</strong> · 시니어(7년+) <strong>8~12만원/시간</strong></p>
+  </div>
+
+  <div class="dark-inline">
+    <h4>3. 사업가</h4>
+    <p><code>목표 시간당 가치 = 연 목표 매출 ÷ 연간 가용 업무 시간</code></p>
+    <p>예) 연 5억 목표, 연 2,000시간 → <strong>목표 시간당 25만원</strong>.<br>이 기준치보다 낮은 가치의 업무는 <strong>위임/외주 판단 기준</strong>이 된다.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 04 · 가계부 차이 + 계산법</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 10 — 개인 적용 2: 양식 + 인생방정식 + 5가지 이유 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">10 / 11</div>
+  </div>
+
+  <div class="section-number">Part 04 · Personal Application (계속)</div>
+  <h2 class="section-title">개인 채산표 <em>양식</em> + 인생 방정식</h2>
+
+  <h3>월간 개인 채산표 — 기본형</h3>
+  <table>
+    <tr><th style="width: 35%;">구분</th><th style="width: 35%;">항목</th><th>금액(원)</th></tr>
+    <tr><td rowspan="4"><strong>[A] 총생산 (수입)</strong></td><td>본업 수입 (급여/사업소득)</td><td></td></tr>
+    <tr><td>부업 수입 (강의·콘텐츠·프리랜서)</td><td></td></tr>
+    <tr><td>기타 수입 (투자·인세)</td><td></td></tr>
+    <tr class="tbl-emph"><td><strong>총생산 합계</strong></td><td></td></tr>
+    <tr><td rowspan="6"><strong>[B] 경비 (지출)</strong></td><td>업무 직접 비용 (도구·SW·재료)</td><td></td></tr>
+    <tr><td>이동/교통비 (업무 관련)</td><td></td></tr>
+    <tr><td>학습/자기계발비</td><td></td></tr>
+    <tr><td>마케팅/홍보비</td><td></td></tr>
+    <tr><td>외주 비용 (위임 업무)</td><td></td></tr>
+    <tr class="tbl-emph"><td><strong>경비 합계</strong></td><td></td></tr>
+    <tr class="tbl-emph"><td colspan="2"><strong>[C] 부가가치 = A − B</strong></td><td></td></tr>
+    <tr><td colspan="2"><strong>[D] 총 투입 시간</strong> (월 전체 업무시간)</td><td></td></tr>
+    <tr class="tbl-emph"><td colspan="2"><strong>[E] 시간당 부가가치 = C ÷ D</strong></td><td><strong>원/시간</strong></td></tr>
+  </table>
+
+  <h3>활동별 시간당 부가가치 분석</h3>
+  <table>
+    <tr><th>활동</th><th>월 투입시간</th><th>수입</th><th>직접비용</th><th>부가가치</th><th>시간당 가치</th></tr>
+    <tr><td>본업 (직장)</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>강의 / 코칭</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>콘텐츠 제작</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>유튜브 / SNS</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>집필 / 원고</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>사업 기획</td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="quote-light"><p>이 분석표로 "<strong>어떤 활동이 시간당 가장 높은 가치를 만드는가</strong>"가 가시화된다. 시간 배분 의사결정의 기준이 생긴다.</p></div>
+
+  <div class="divider-tight"></div>
+
+  <h3>인생 방정식과 채산표의 연결</h3>
+  <div class="formula">
+    인생 · 일의 결과 = 사고방식(−100 ~ +100) × 열의(0 ~ 100) × 능력(0 ~ 100)
+  </div>
+  <ul>
+    <li><strong>능력</strong> · 시간당 기술 단가에 반영 (고숙련 = 높은 시간당 가치)</li>
+    <li><strong>열의</strong> · 투입 시간의 질에 반영 (높은 몰입 = 같은 시간에 더 높은 산출)</li>
+    <li><strong>사고방식</strong> · 어떤 활동에 시간을 배분하는가 (전략적 집중 vs 소모)</li>
+  </ul>
+  <p>이나모리는 사고방식이 <strong>유일하게 마이너스 값</strong>이 된다고 강조한다. 채산표로 보면, 능력(시간당 단가)이 아무리 높아도 잘못된 사고방식으로 수익성 낮은 활동에 시간을 쏟으면 <strong>전체 부가가치가 역전된다</strong>.</p>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 04 · 양식 + 인생 방정식</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 11 — 5가지 이유 + 한국 수용 + 자료 ============ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-brand">INAMORI · 채산표 가이드</div>
+    <div class="page-number">11 / 11</div>
+  </div>
+
+  <div class="section-number">Part 04 · 마무리 + Part 05 · Korea</div>
+  <h2 class="section-title">왜 써야 하는가 + <em>한국</em> 수용</h2>
+
+  <div class="quote">
+    <p>"매일의 숫자를 보지 않고 경영하는 것은 <strong>계기판을 보지 않고 비행기를 조종하는 것</strong>과 같다." — 이나모리 가즈오</p>
+  </div>
+
+  <h3>개인이 채산표를 써야 하는 5가지 이유</h3>
+  <ol class="principles">
+    <li><strong>시간 배분 결정</strong> · 어떤 활동이 진짜 가치를 만드는지 <em>숫자로</em> 확인.</li>
+    <li><strong>사이드 프로젝트 수익성 판단</strong> · 감각이 아니라 시간당 부가가치로 판단.</li>
+    <li><strong>아웃소싱 기준 설정</strong> · 내 시간당 가치보다 싼 비용이면 위임.</li>
+    <li><strong>자기 착취 방지</strong> · 바쁘지만 가치가 낮은 활동을 발견.</li>
+    <li><strong>성장 추적</strong> · 같은 시간으로 더 높은 가치를 만들어가는 궤도 확인.</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <h3>한국에서의 수용 현황</h3>
+  <div class="two-col">
+    <div>
+      <h4>도입 기업</h4>
+      <ul>
+        <li><strong>메리츠금융그룹</strong> · 한경 2022.03.28 보도. 팀 단위 독립 채산제 운영.</li>
+        <li><strong>KCGI(강성부 펀드)</strong> · 투자 대상 기업에 아메바 원칙 요구 보도.</li>
+        <li>일본전산 영향받은 한국 기업들이 간접 도입한 사례 다수 — 상세 미공개.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>출판 / 미디어</h4>
+      <ul>
+        <li><strong>『이나모리 가즈오의 회계 경영』</strong> 2022년 국내 번역 출간 (교보문고·알라딘).</li>
+        <li>『아메바 경영』 영역판 (CRC Press, 2012) 국내 유통.</li>
+        <li>이나모리 한국 공식 사이트 운영 중 (<code>korea.kyocera.com/inamori/</code>).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h3>이 가이드의 근거 자료 (25개 출처)</h3>
+  <ul>
+    <li><strong>1차 공식</strong> · Kyocera 공식 사이트(일본·한국·글로벌) · 이나모리 회계학 7원칙 페이지 · 세이와주쿠 페이지 · 1963년 시가 공장 에피소드 · 인생 방정식 페이지</li>
+    <li><strong>전문 미디어</strong> · 일경 BOOKプラス · Frontier Eyes Online · JBpress · 内日新聞 · MIT Sloan Management Review · Corporate Rebels · 税理士法人 エヴィス / 東京メトロポリタン</li>
+    <li><strong>학술</strong> · Springer "Amoeba Management & Hourly Profit System" · O'Reilly "Amoeba Management" Chapter 4 · Routledge 영문 단행본</li>
+    <li><strong>한국 미디어</strong> · 한국경제 2022.03.28 · 교보문고 상품 페이지 · 알라딘</li>
+    <li><strong>참고</strong> · Wikipedia "Amoeba Management" · KCCS 컨설팅 공식 페이지 · 클로브 / 프리랜서 단가 가이드</li>
+  </ul>
+
+  <div class="highlight-box">
+    <h4>이 가이드를 다 읽었다면 다음 3가지를 할 수 있어야 한다</h4>
+    <ol>
+      <li>채산표가 일반 P&amp;L과 무엇이 다른지 한 문장으로 설명</li>
+      <li>본인 회사(또는 팀)의 가상 채산표 1장 작성</li>
+      <li>본인의 시간당 부가가치를 숫자로 산출</li>
+    </ol>
+  </div>
+
+  <div class="page-footer">
+    <span>YUNSOJUNG STUDY</span>
+    <span>Part 04 + Part 05 · 결론</span>
+  </div>
+</div>
+
+<!-- ============ CLOSING ============ -->
+<div class="closing">
+  <h1 class="closing-title">너의 시간은<br><em>얼마</em>짜리인가</h1>
+  <p class="closing-sub">계기판 없이 비행기는 못 띄운다.<br>채산표는 너의 매일을 비추는 계기판이다.</p>
+  <div class="closing-info">
+    YUNSOJUNG · STUDY GUIDE<br>
+    INAMORI KAZUO · 채산표 종합 가이드<br>
+    2026 · 05 · 19
+  </div>
+</div>
+
+</body>
+</html>

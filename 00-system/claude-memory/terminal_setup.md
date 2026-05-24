@@ -18,4 +18,20 @@ metadata:
 - 폰트: `~/Library/Fonts/D2Coding*.ttf` (Regular/Bold/Ligature 4종 설치됨)
 - 한글 렌더링 이슈 재발 시 이 프로필이 살아있는지 먼저 확인
 
+**재발 패턴 (2026-05-19 재발 1회):**
+폰트/프로필 다 살아있는데도 깨짐 → 원인은 iTerm2 창 복원이 옛 프로필로 띄움. 다음 명령으로 자동 복구:
+
+```bash
+# 영구: 창 복원 끄기 + 기본 프로필 재확정
+defaults write com.googlecode.iterm2 OpenArrangementAtStartup -bool false
+defaults write com.googlecode.iterm2 NSQuitAlwaysKeepsWindows -bool false
+defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "A1B2C3D4-E5F6-7890-ABCD-D2CODING0001"
+
+# 즉시: 현재 세션 프로필 강제 변경
+osascript -e 'tell application "iTerm2" to tell current session of current window to set profile to "Korean (D2Coding)"'
+
+# 그래도 안 되면 폰트 캐시 (sudo 필요)
+sudo atsutil databases -remove && atsutil server -shutdown && atsutil server -ping
+```
+
 브루(Homebrew)는 설치 안 됨 — 도구 설치는 직접 다운로드 방식으로 진행.
