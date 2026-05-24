@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRUS 디자인 시스템 — 한 장 요약</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+  /* ── TRUS 토큰 (자체 완결) ── */
+  :root {
+    --black:#121212; --white:#FFFFFF; --pink:#D84D8D;
+    --g300:#d4d4d4; --g500:#737373; --g700:#404040;
+    --display:'Pretendard Variable',Pretendard,system-ui,sans-serif;
+    --serif:'Noto Serif KR',serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  @page { size: A4; margin: 0; }
+  html, body { background:#e9e9e9; }
+  body {
+    font-family:var(--display); color:var(--black);
+    word-break:keep-all; -webkit-font-smoothing:antialiased;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page {
+    width:210mm; min-height:297mm; margin:18px auto; background:var(--white);
+    padding:16mm 15mm; box-shadow:0 2px 20px rgba(0,0,0,.15);
+  }
+  @media print { html,body{background:#fff;} .page{margin:0; box-shadow:none;} }
+
+  /* ── 헤더 ── */
+  .head { display:flex; align-items:baseline; justify-content:space-between; }
+  .head h1 { font-size:25px; font-weight:800; letter-spacing:-.02em; }
+  .head .meta { font-size:12px; color:var(--g500); letter-spacing:.04em; }
+  .rule-pink { height:3px; width:54px; background:var(--pink); margin:9px 0 0; border:0; }
+  .lead { font-family:var(--serif); font-size:13px; line-height:1.7; color:var(--g700);
+          margin:14px 0 22px; max-width:62ch; text-align:justify; }
+
+  h2.sec { font-size:11px; font-weight:700; letter-spacing:.18em; color:var(--g500);
+           text-transform:uppercase; margin:0 0 12px; }
+  .block { margin-bottom:22px; }
+
+  /* ── 색 ── */
+  .swatches { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .sw { border:1px solid var(--g300); }
+  .sw .chip { height:64px; }
+  .sw .info { padding:8px 10px; }
+  .sw .nm { font-size:12px; font-weight:700; }
+  .sw .hx { font-size:11px; color:var(--g500); letter-spacing:.03em; }
+  .note-pink { font-size:11px; color:var(--pink); font-weight:600; margin-top:8px; }
+
+  /* ── 폰트 ── */
+  .fonts { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .fcard { border:1px solid var(--g300); padding:12px 14px; }
+  .fcard .role { font-size:10.5px; font-weight:700; letter-spacing:.14em; color:var(--g500); text-transform:uppercase; }
+  .fcard .fname { font-size:13px; font-weight:700; margin:3px 0 8px; }
+  .fcard .samp-d { font-size:19px; font-weight:700; letter-spacing:-.02em; line-height:1.2; }
+  .fcard .samp-s { font-family:var(--serif); font-size:14px; line-height:1.75; color:var(--g700); }
+  .scale { margin-top:12px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+           border-top:1px solid var(--g300); padding-top:10px; }
+  .scale span { color:var(--g700); }
+  .scale .s13{font-size:13px;} .scale .s15{font-size:15px; font-weight:600;}
+  .scale .s20{font-size:20px;} .scale .s25{font-size:25px;} .scale .s31{font-size:31px;}
+  .scale .lab{ font-size:10px; color:var(--g500); }
+
+  /* ── 원칙 ── */
+  .principles { display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; }
+  .pr { font-size:12px; line-height:1.55; }
+  .pr b { font-weight:700; } .pr .t { color:var(--g700); }
+  .pr .n { color:var(--pink); font-weight:700; margin-right:5px; }
+
+  /* ── Do / Don't ── */
+  .dd { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .dd ul { list-style:none; }
+  .dd li { font-size:11.5px; line-height:1.7; color:var(--g700); padding-left:16px; position:relative; }
+  .dd .do  h3 { font-size:12px; font-weight:700; margin-bottom:6px; }
+  .dd .dont h3 { font-size:12px; font-weight:700; margin-bottom:6px; color:var(--pink); }
+  .dd .do li::before  { content:'✓'; position:absolute; left:0; font-weight:700; }
+  .dd .dont li::before{ content:'✕'; position:absolute; left:0; color:var(--pink); }
+
+  footer { margin-top:8px; border-top:1px solid var(--g300); padding-top:10px;
+           display:flex; justify-content:space-between; align-items:baseline; font-size:10.5px; color:var(--g500); }
+  footer b { color:var(--black); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <h1>TRUS DESIGN SYSTEM</h1>
+    <div class="meta">한 장 요약 · 2026.05</div>
+  </div>
+  <hr class="rule-pink">
+  <p class="lead">큰 글씨로 외치지 않는다. 절제·호흡·여백으로 <strong>읽히게</strong> 만든다. 위계는 크기가 아니라 굵기·여백·위치로, 강조는 딱 필요한 한 곳에만.</p>
+
+  <!-- 색 -->
+  <div class="block">
+    <h2 class="sec">Color · 공식 팔레트</h2>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#121212"></div><div class="info"><div class="nm">TRUS BLACK</div><div class="hx">#121212 · 텍스트·1차 버튼</div></div></div>
+      <div class="sw"><div class="chip" style="background:#D84D8D"></div><div class="info"><div class="nm" style="color:#D84D8D">EDUCATE PINK</div><div class="hx">#D84D8D · 시그니처 액센트</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF; border-bottom:1px solid #d4d4d4"></div><div class="info"><div class="nm">TRUE WHITE</div><div class="hx">#FFFFFF · 기본 배경</div></div></div>
+    </div>
+    <div class="note-pink">핑크는 화면의 5% 미만 — 핵심 강조 한 곳·링크·활성 상태에만. 넓은 면적 ✕</div>
+  </div>
+
+  <!-- 폰트 -->
+  <div class="block">
+    <h2 class="sec">Typography · 기능으로 나눈다</h2>
+    <div class="fonts">
+      <div class="fcard">
+        <div class="role">제목 · 라벨 · 짧은 선언</div>
+        <div class="fname">Pretendard</div>
+        <div class="samp-d">생각의 페이스메이커</div>
+      </div>
+      <div class="fcard">
+        <div class="role">여러 줄 흐르는 본문</div>
+        <div class="fname">Noto Serif KR (명조)</div>
+        <div class="samp-s">나는 내가 딱 해본 것만큼만 공유합니다. 본문은 명조로 차분하게 읽힌다.</div>
+      </div>
+    </div>
+    <div class="scale">
+      <span class="s13">13</span><span class="s15">15·본문</span><span class="s20">20</span><span class="s25">25</span><span class="s31">31</span>
+      <span class="lab">비율 1.25 · 디스플레이도 본문의 2배 이내</span>
+    </div>
+  </div>
+
+  <!-- 원칙 -->
+  <div class="block">
+    <h2 class="sec">4 Principles</h2>
+    <div class="principles">
+      <div class="pr"><span class="n">1</span><b>비넬리 타이포</b><br><span class="t">소수의 크기·절제된 비율. 강조는 크기 ✕ → 굵기·여백.</span></div>
+      <div class="pr"><span class="n">2</span><b>호흡 줄바꿈</b><br><span class="t">소리 내어 읽어 숨 쉬는 자리에서 줄바꿈. 짧은 핵심 문장에만, 긴 본문은 붙여서.</span></div>
+      <div class="pr"><span class="n">3</span><b>기능별 폰트</b><br><span class="t">제목=Pretendard / 흐르는 본문=명조. 본문 15px.</span></div>
+      <div class="pr"><span class="n">4</span><b>팔레트 절제</b><br><span class="t">흑·백 기본, 핑크는 점처럼. 그림자 ✕ → 1px 선과 여백.</span></div>
+    </div>
+  </div>
+
+  <!-- Do / Don't -->
+  <div class="block">
+    <h2 class="sec">Do / Don't</h2>
+    <div class="dd">
+      <div class="do">
+        <h3>Do</h3>
+        <ul>
+          <li>위계는 굵기·여백으로</li>
+          <li>한글 본문 행간 1.6~1.7</li>
+          <li>읽는 본문 한 줄 폭 640~720px</li>
+          <li>붙여 쓰는 본문 = 양쪽정렬</li>
+          <li>섹션 사이 80px+, word-break:keep-all</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>강조한다고 글씨 키우기</li>
+          <li>폰트 3종 이상 섞기</li>
+          <li>한글 본문 음수 자간</li>
+          <li>조사·단일 음절 줄 끝 외톨이</li>
+          <li>화려한 컬러·그림자로 강조</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div><b>"트루스 디자인으로 해줘"</b> = 이 시스템 적용</div>
+    <div>구현: trus-design.css · 규칙: design-guide.md</div>
+  </footer>
+
+</div>
+</body>
+</html>

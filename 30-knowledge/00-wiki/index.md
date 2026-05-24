@@ -21,6 +21,10 @@
 
 - [[trus|트루스]] (entity) — 귀염둥이+황호의 일하는 방식 체계. 6공식·10원칙·환경 설계 4원리. 후속 스킬들의 ground truth. (sources: 4, last enriched: 2026-05-11)
 
+### 디자인·브랜드
+
+- [[트루스-디자인-시스템]] (synthesis) — 트루스 브랜드의 시각 언어: 비넬리 타이포·호흡 줄바꿈·기능별 폰트·TRUS 3색. (sources: 5, last enriched: 2026-05-24)
+
 ---
 
-**Last updated**: 2026-05-11
+**Last updated**: 2026-05-24
