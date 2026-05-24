@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>윤소정 정체성 — Before / After 비교 (아카이브)</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif; background: #1c1c1c; color: #eee; }
+  .bar { display: grid; grid-template-columns: 1fr 1fr; }
+  .lab { padding: 14px 22px; border-bottom: 1px solid #444; }
+  .lab b { display: block; font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
+  .lab span { font-size: 12.5px; color: #aaa; line-height: 1.5; }
+  .lab.before { background: #38292b; }
+  .lab.after  { background: #29382c; border-left: 1px solid #444; }
+  .frames { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - 58px); }
+  .frames iframe { width: 100%; height: 100%; border: 0; background: #fff; }
+  .frames iframe.after { border-left: 1px solid #444; }
+  @media (max-width: 900px) {
+    .bar, .frames { grid-template-columns: 1fr; }
+    .frames { height: auto; }
+    .frames iframe { height: 92vh; }
+    .lab.after, .frames iframe.after { border-left: 0; border-top: 2px solid #555; }
+  }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="lab before">
+      <b>BEFORE — 원본</b>
+      <span>가장 큰 글씨 104px · 본문 명조 · 큰글씨 비율 본문의 6.5배</span>
+    </div>
+    <div class="lab after">
+      <b>AFTER — 비넬리 + 호흡 줄바꿈 + TRUS 컬러</b>
+      <span>31px 상한 · 제목 Pretendard·본문 명조15 · 호흡 줄바꿈 · EDUCATE PINK 액센트 2군데</span>
+    </div>
+  </div>
+  <div class="frames">
+    <iframe class="before" src="identity-original.html" title="원본"></iframe>
+    <iframe class="after"  src="../identity.html" title="개선 (최종)"></iframe>
+  </div>
+</body>
+</html>

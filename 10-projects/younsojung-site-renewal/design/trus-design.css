@@ -1,0 +1,142 @@
+/* ============================================================
+   TRUS Design System — trus-design.css
+   윤소정 / TRUS 공식 디자인 토큰 (실행 버전)
+   소스: design-guide.md (v3)
+
+   사용법: 페이지 <head>에 폰트 2줄 + 이 파일을 link.
+     <link rel="stylesheet" href=".../Noto+Serif+KR ...">
+     <link rel="stylesheet" href=".../pretendardvariable.min.css">
+     <link rel="stylesheet" href="trus-design.css">
+   (아래 @import로도 자동 로드되지만, 성능은 <link>가 유리)
+
+   원칙: 비넬리(소수의 크기·절제) + 호흡 줄바꿈 + TRUS 3색.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+
+:root {
+  /* ── 색 · TRUS 공식 팔레트 ── */
+  --trus-black:   #121212;   /* TRUS BLACK — 텍스트·잉크·1차 버튼 */
+  --trus-white:   #FFFFFF;   /* TRUE WHITE — 기본 배경 */
+  --educate-pink: #D84D8D;   /* TRUE EDUCATE PINK — 시그니처 액센트(5% 미만 절제) */
+  --ink: var(--trus-black);
+  --gray-100:#f5f5f5; --gray-300:#d4d4d4; --gray-500:#737373; --gray-700:#404040;
+
+  /* ── 폰트 ── */
+  --display: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;  /* 제목·라벨·짧은 선언 */
+  --serif:   'Noto Serif KR', serif;   /* 여러 줄로 흐르는 본문 단락 */
+
+  /* ── 타입 스케일 · 비넬리 비율, 본문 15px ── */
+  --text-s:    0.8rem;     /* 13px — 캡션·메타·태그 */
+  --text-aux:  0.875rem;   /* 14px — 보조 */
+  --text-body: 0.9375rem;  /* 15px — 읽기 본문 */
+  --text-m:    1.25rem;    /* 20px — 중간/소제목 */
+  --text-l:    1.563rem;   /* 25px — 큰/섹션 제목 */
+  --text-xl:   1.953rem;   /* 31px — 디스플레이 상한 (이보다 키우지 않음) */
+
+  /* ── 줄간격 (제목 좁게, 본문 넓게) ── */
+  --lh-display: 1.1;
+  --lh-heading: 1.3;
+  --lh-body:    1.7;
+  --lh-quote:   1.5;
+
+  /* ── 여백 · 8의 배수 ── */
+  --space-1: 8px;  --space-2: 16px; --space-3: 24px;
+  --space-4: 32px; --space-6: 48px; --space-10: 80px;
+  --section-gap: 80px;
+  --content-max: 1280px;   /* 페이지 폭 */
+  --reading-max: 700px;    /* 읽는 본문 한 줄 폭(~60ch) */
+  --pad-x: 8vw;
+
+  /* ── 컴포넌트 ── */
+  --radius: 2px;   /* 버튼 모서리 (직각에 가깝게). 더 날카롭게 하려면 0 */
+}
+
+/* ============================================================
+   베이스
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--display);   /* 기본 = Pretendard (제목·라벨·짧은 텍스트) */
+  color: var(--ink);
+  background: var(--trus-white);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  word-break: keep-all;          /* 한글 단어 중간 안 깨짐 (왼쪽정렬 기본) */
+  text-wrap: pretty;             /* 마지막 줄 외톨이 방지 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   타이포 클래스
+   ============================================================ */
+.t-display { font-size: clamp(1.5rem, 4vw, var(--text-xl)); font-weight: 800;
+             line-height: var(--lh-display); letter-spacing: -0.03em; }
+.t-l { font-size: var(--text-l); font-weight: 700; line-height: var(--lh-display); letter-spacing: -0.02em; }
+.t-m { font-size: var(--text-m); font-weight: 600; line-height: var(--lh-heading); }
+.t-s { font-size: var(--text-s); color: var(--gray-500); }
+
+/* 본문 단락(붙여 쓰기) = 명조 + 양쪽정렬 + 자연 줄바꿈 (빽빽한 블록) */
+.body-flow { font-family: var(--serif); font-size: var(--text-body); line-height: var(--lh-body);
+             text-align: justify; word-break: normal; color: var(--gray-700); }
+/* 호흡 줄바꿈 짧은 문장 = 명조/혼용 + 왼쪽정렬 + keep-all */
+.breath { text-align: left; word-break: keep-all; }
+
+/* 강조: 크기 ❌ → 굵게 / 핑크(절제) */
+strong, .bold { font-weight: 700; }
+.accent { color: var(--educate-pink); }   /* EDUCATE PINK — 핵심 한 곳에만 */
+
+/* 호흡 줄바꿈: 데스크탑 <br>은 모바일에서 끔 */
+br.pc { display: inline; }
+br.mo { display: none; }
+@media (max-width: 600px) { br.pc { display: none; } br.mo { display: inline; } }
+
+/* ============================================================
+   컴포넌트
+   ============================================================ */
+/* 버튼 — hover 시 채움↔외곽선 반전 */
+.btn { font-family: var(--display); font-weight: 600; font-size: var(--text-body);
+       padding: 14px 28px; border-radius: var(--radius); letter-spacing: -0.01em;
+       display: inline-block; transition: all .2s ease; cursor: pointer;
+       min-height: 44px; text-decoration: none; }
+.btn-primary   { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+.btn-primary:hover   { background: transparent; color: var(--ink); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: #fff; }
+
+/* 링크 */
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { opacity: .6; }
+
+/* 구분선 (hairline) — 시그니처 */
+.rule        { height: 1px; background: var(--gray-300); border: 0; }
+.rule-strong { height: 1px; background: var(--ink); border: 0; }
+.rule-accent { height: 2px; width: 60px; background: var(--educate-pink); border: 0; }
+
+/* 태그·뱃지 */
+.tag   { font-family: var(--display); font-size: var(--text-s); font-weight: 600;
+         letter-spacing: .1em; color: var(--gray-500); }
+.badge { display: inline-block; border: 1px solid var(--gray-300);
+         padding: 4px 12px; border-radius: 999px; font-size: var(--text-s); }
+
+/* 카드 — 그림자 ❌, hairline 보더만 */
+.card { border: 1px solid var(--gray-300); padding: 28px 24px; }
+
+/* 인용 블록 */
+.pullquote { text-align: center; max-width: 60ch; margin: 0 auto;
+             font-size: var(--text-m); font-weight: 500; line-height: var(--lh-quote); }
+.pullquote::before, .pullquote::after {
+  content: ''; display: block; width: 40px; height: 1px; background: var(--ink); margin: 1rem auto; }
+
+/* ============================================================
+   레이아웃 유틸
+   ============================================================ */
+.container { max-width: var(--content-max); margin: 0 auto;
+             padding-left: var(--pad-x); padding-right: var(--pad-x); }
+.reading   { max-width: var(--reading-max); margin: 0 auto; }   /* 읽는 본문 폭 */
+.section   { padding-top: var(--section-gap); padding-bottom: var(--section-gap); }
+
+@media (max-width: 768px) { :root { --pad-x: 6vw;  --section-gap: 48px; } }
+@media (max-width: 480px) { :root { --pad-x: 20px; --section-gap: 40px; } }
