@@ -9,3 +9,13 @@
 - [사이트 정체성](project_site_identity.md) — younsojung.co.kr = e-book 판매 사이트. 생각구독 깔때기로 재정의 X. 별도 트랙
 - [정의는 사용자가 박는다](feedback-definition-consent.md) — 본질·정체성 정의는 후보 펼치고 사용자가 박음. AI가 일방 결정 ❌
 - [윤소정 카피 원칙](feedback-copywriting-principle.md) — 직관·실용·누구나 이해. 시적/추상 ❌. 감성 = 친밀한 직설
+- [비넬리 타이포 원칙](feedback-typography-vignelli.md) — 강조는 큰 글씨 ❌, 굵기·여백으로. 크기 비율 1.25, 디스플레이 본문 2배 이내
+- [호흡 줄바꿈](feedback-typography-linebreak.md) — 윤소정식 폰트 디자인 생명. 소리내어 읽어 숨 쉬는 자리에서 내려쓴다. 제목/라벨=Pretendard, 흐르는 본문=명조
+- [윤소정 사진 식별](younsojung-photo-identity.md) — 사진 큐레이션 시 본인=브이(V) 하는 사람, 남편·아들·동료(수정·선미님) 등장
+- [정지사진 카드 정렬법](feedback-photo-card-layout.md) — 가운데·하단·작은 명조 기본 / 명조·Pretendard·제주돌담체 / 레터박스·아치 / make_cards.py 재사용
+- [트루스 디자인 팔레트](trus-design-palette.md) — "트루스 디자인" 요청 시 필수 3색: BLACK #121212 / WHITE #FFFFFF / EDUCATE PINK #D84D8D. 핑크는 5% 미만 절제
+- [생각구독 워크플로우](생각구독-workflow.md) — 81호에서 정립한 8단계: 인터뷰→개념→컨셉·키퀘스천→표지→이야기설계→목차→본문→구글이전
+- [성과 우선 일정정리](feedback-schedule-outcome-first.md) — 일정 정리할 때마다 "성과와 가장 연결된 작업"을 먼저 물어보고 골든타임에 배치
+- [8마디 훈련법](8마디-훈련법.md) — 어떤 일이든 단위로 쪼개 하나씩 완성하며 끝까지의 스텝을 줄이는 훈련 (8은 비유, 숫자 고정 아님)
+- [구조는 그림으로](feedback-visual-structure.md) — 선택지·구조·진단은 표·다이어그램으로 시각화해 보여주면 판단이 쉽다 (시각 사고형)
+- [유튜브 워크플로우](youtube-workflow.md) — 5단계: 한달정리→컨셉→형식→스크립트(HOOK·PROOF·FRAMES·CRY·CALL)→자료/촬영. *끝점부터 그린다*

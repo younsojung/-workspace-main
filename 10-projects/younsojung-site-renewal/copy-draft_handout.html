@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME 카피 — 4기둥</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root {
+  --color-bg: #FFFFFF;
+  --color-bg-dark: #111111;
+  --color-bg-muted: #F5F5F5;
+  --color-text: #111111;
+  --color-text-light: #FFFFFF;
+  --color-text-muted: #666666;
+  --color-border: #E0E0E0;
+  --color-accent: #111111;
+  --font-sans: 'Helvetica Neue', 'Pretendard', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+@page { size: A4; margin: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #888;
+  line-height: 1.6;
+  word-break: keep-all;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm; height: 297mm;
+  padding: 18mm 20mm 20mm 20mm;
+  margin: 10px auto;
+  background: var(--color-bg);
+  position: relative; overflow: hidden;
+  page-break-after: always; page-break-inside: avoid;
+}
+@media print { body { background: white; } .page { margin: 0; box-shadow: none; } }
+@media screen { .page { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+
+.cover {
+  width: 210mm; height: 297mm;
+  background: var(--color-bg-dark); color: var(--color-text-light);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 24mm; margin: 10px auto;
+  position: relative; overflow: hidden;
+  page-break-after: always;
+}
+@media screen { .cover { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .cover { margin: 0; box-shadow: none; } }
+.cover-label { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.4; margin-bottom: 12mm; }
+.cover-title { font-family: var(--font-sans); font-size: 28pt; font-weight: 700; line-height: 1.15; margin-bottom: 5mm; letter-spacing: -0.02em; }
+.cover-title em { font-style: normal; font-weight: 300; }
+.cover-subtitle { font-family: var(--font-sans); font-size: 12pt; font-weight: 300; opacity: 0.7; margin-bottom: 18mm; line-height: 1.5; }
+.cover-meta { display: grid; grid-template-columns: auto 1fr; gap: 2mm 6mm; font-size: 8.5pt; opacity: 0.5; }
+.cover-meta dt { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.05em; text-transform: uppercase; }
+.cover-meta dd { margin: 0; }
+.cover-brand { position: absolute; bottom: 18mm; left: 24mm; font-size: 10pt; font-weight: 600; letter-spacing: 0.05em; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9mm; padding-bottom: 3mm; border-bottom: 1pt solid var(--color-border); }
+.page-brand { font-size: 8pt; font-weight: 600; opacity: 0.3; letter-spacing: 0.1em; }
+.page-number { font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.1em; opacity: 0.3; }
+.page-footer { position: absolute; bottom: 12mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-size: 6.5pt; opacity: 0.25; font-family: var(--font-mono); }
+
+.section-number { font-family: var(--font-mono); font-size: 6.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1.5mm; }
+.section-title { font-family: var(--font-sans); font-size: 16pt; font-weight: 700; line-height: 1.25; margin-bottom: 4mm; color: var(--color-text); letter-spacing: -0.01em; }
+.section-title em { font-weight: 300; font-style: normal; }
+h3 { font-family: var(--font-sans); font-size: 8.5pt; font-weight: 700; margin-bottom: 2.5mm; margin-top: 5mm; color: var(--color-text); }
+.meta-desc { font-size: 7.5pt; line-height: 1.55; margin-bottom: 3mm; color: var(--color-text-muted); }
+
+/* 카피 박스 — 이 문서의 주인공. 또렷한 검정 + 호흡 줄바꿈 살림 */
+.copy { background: #FAFAFA; border-left: 2.5pt solid var(--color-text); padding: 4.5mm 5.5mm; margin: 3.5mm 0; }
+.copy p { color: var(--color-text); font-size: 9pt; line-height: 1.75; margin: 0 0 3mm; }
+.copy p:last-child { margin-bottom: 0; }
+.copy .lead { font-weight: 700; font-size: 10.5pt; line-height: 1.6; }
+.copy .note { color: #999; font-size: 7.5pt; line-height: 1.5; }
+.copy .cta { display: inline-block; font-family: var(--font-mono); font-weight: 600; font-size: 8.5pt; border: 1.5pt solid var(--color-text); padding: 2mm 6mm; margin-top: 2mm; letter-spacing: 0.02em; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin: 3.5mm 0; }
+.two-col .copy { margin: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 8pt; }
+th { background: var(--color-bg-dark); color: var(--color-text-light); padding: 2.5mm 3mm; text-align: left; font-weight: 600; font-size: 7pt; letter-spacing: 0.05em; }
+td { padding: 2.5mm 3mm; border-bottom: 0.5pt solid var(--color-border); color: var(--color-text-muted); vertical-align: top; }
+td:first-child { color: var(--color-text); font-weight: 600; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+
+ul { padding-left: 5mm; margin: 2mm 0; }
+li { font-size: 8pt; line-height: 1.6; margin-bottom: 1.5mm; color: var(--color-text-muted); }
+li strong { color: var(--color-text); }
+.divider { height: 0.5pt; background: var(--color-border); margin: 5mm 0; }
+code { font-family: var(--font-mono); font-size: 7.5pt; color: var(--color-text); background: var(--color-bg-muted); padding: 0.5mm 1.5mm; border-radius: 1pt; }
+
+.closing { width: 210mm; height: 297mm; background: var(--color-bg-dark); color: var(--color-text-light); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 24mm; margin: 10px auto; page-break-after: avoid; }
+@media screen { .closing { box-shadow: 0 4px 20px rgba(0,0,0,0.2); } }
+@media print { .closing { margin: 0; box-shadow: none; } }
+.closing-title { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 6mm; letter-spacing: -0.02em; }
+.closing-title em { font-weight: 300; font-style: normal; }
+.closing-sub { font-size: 10pt; opacity: 0.4; margin-bottom: 16mm; }
+.closing-info { font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.1em; opacity: 0.3; line-height: 2.2; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Younsojung Site Renewal</div>
+  <h1 class="cover-title">HOME 카피<br><em>4기둥</em></h1>
+  <p class="cover-subtitle">생각의 페이스메이커 — 윤소정 사이트 개편<br>소개 · 왜 읽는가 · Start Here · 구독하는 방법</p>
+  <dl class="cover-meta">
+    <dt>Date</dt><dd>2026 · 05 · 25</dd>
+    <dt>Author</dt><dd>윤소정</dd>
+    <dt>Method</dt><dd>8마디 훈련 — 한 마디씩 끝내고 넘어가기</dd>
+    <dt>Guard</dt><dd>구독자 수 · 누적 매출 · 재구독률 비공개</dd>
+  </dl>
+  <div class="cover-brand">생각구독</div>
+</div>
+
+<!-- PAGE 1 — 마디1 소개 -->
+<div class="page">
+  <div class="page-header"><div class="page-brand">HOME COPY · 4기둥</div><div class="page-number">01 / 04</div></div>
+
+  <div class="section-number">마디 1</div>
+  <h2 class="section-title">윤소정 소개 — <em>신뢰에서 제안으로</em></h2>
+  <p class="meta-desc">① 내가 뛰어온 길(신뢰) → ② 그래서 같이 뛰자(제안). 흐름 = 혼자 앞서가는 선생님 → 옆에서 같이 뛰는 페이스메이커. 화자 1인칭.</p>
+
+  <h3>① 내가 뛰어온 길 — 신뢰</h3>
+  <div class="copy"><p class="lead">나는, 멈추지 않았습니다.</p></div>
+  <table>
+    <tr><th style="width:38%">증거</th><th>무슨 신뢰를 주나</th></tr>
+    <tr><td>매월 한 권 · 15년째</td><td>한 번도 거른 적 없는 기록</td></tr>
+    <tr><td>현장 19년 · 2만 명</td><td>교육 현장에서 직접 바꾼 사람들</td></tr>
+    <tr><td>러쉬코리아 CD</td><td>리브랜딩으로 브랜드를 다시 키우고, 학습하는 조직으로</td></tr>
+    <tr><td>자퇴생 → 투자자</td><td>내가 먼저, 끝까지 변한 사람</td></tr>
+  </table>
+  <div class="copy">
+    <p>나는 책상에서<br>기획만 하는 사람이 아닙니다.</p>
+    <p>19년간 현장에서 끝까지 같이 뛰어<br><strong>결과를 만들어 온</strong> 사람입니다.</p>
+  </div>
+
+  <h3>② 그래서, 같이 뛰자 — 제안</h3>
+  <div class="copy">
+    <p>그러니 우리,<br>같은 페이스로 한 달 뛰어볼까?</p>
+    <p>내가 이번 달 공부한 걸<br>다 적어뒀어.</p>
+    <p><strong>15년째 매월 한 권, 나는 멈춘 적 없어.</strong></p>
+    <p><span class="cta">처음이라면?</span></p>
+  </div>
+
+  <div class="page-footer"><span>윤소정 사이트 개편</span><span>생각의 페이스메이커</span></div>
+</div>
+
+<!-- PAGE 2 — 마디2 왜 -->
+<div class="page">
+  <div class="page-header"><div class="page-brand">HOME COPY · 4기둥</div><div class="page-number">02 / 04</div></div>
+
+  <div class="section-number">마디 2</div>
+  <h2 class="section-title">생각구독을 <em>왜</em> 읽는가</h2>
+  <p class="meta-desc">"변하지 않음"에서 출발 · 톤: 파는 말 X, 고백·초대 · 화자 3인칭 선언("페이스메이커 윤소정"). 첫 문장은 독자 머릿속 질문으로 후킹. 거래의 뼈대(나는 먼저 적고 → 친구는 그 페이스로 한 걸음)는 살리되 판매 동사·상품 정의는 제거.</p>
+
+  <div class="copy">
+    <p class="lead">"이번 달엔<br>어떤 생각을 해야 할까?"</p>
+    <p>주제는 매달 바뀌어 왔습니다.<br>일, 시대, 관계.</p>
+    <p>그러나 15년간<br>한 번도 바뀌지 않은 것 —</p>
+    <p>생각해보지 못한 지점까지<br>생각한다는 것.</p>
+    <p>"이게 맞나?<br>어디서부터 시작해야 하지?"</p>
+    <p>혼자 생각하면<br>거기서 멈춥니다.<br>바쁘고, 막막해서.</p>
+    <p>그래서 페이스메이커 윤소정은<br>매달 공부한 만큼<br>한 걸음을 적어둡니다.</p>
+    <p>친구들이<br>다시 한 걸음 뗄 수 있게.</p>
+    <p>벌써 <strong>19년째</strong>,<br>우리는 속도와 방향을 맞추며<br>같이, 가치 있게<br>성장하고 있습니다.</p>
+  </div>
+
+  <div class="page-footer"><span>윤소정 사이트 개편</span><span>생각의 페이스메이커</span></div>
+</div>
+
+<!-- PAGE 3 — 마디3 Start Here -->
+<div class="page">
+  <div class="page-header"><div class="page-brand">HOME COPY · 4기둥</div><div class="page-number">03 / 04</div></div>
+
+  <div class="section-number">마디 3</div>
+  <h2 class="section-title">Start Here — <em>처음이라면</em></h2>
+  <p class="meta-desc">현재 사이트 카피를 살림 + 호흡/흐름만 다듬기. 화자 3인칭. Start Here는 "읽기 경로"까지만(구독 권유는 마디4). 후크: 변화를 파는 사람이 본인부터 '변화 샘플'로 발가벗음 = 신뢰.</p>
+
+  <div class="copy">
+    <p class="lead">사람은 변하나요?<br>네, 변합니다.<br>생각을 바꿀 수 있다면.</p>
+    <p>이건 한 인간의<br>날것의 변화 과정입니다.</p>
+    <p>20대, 30대, 40대 —<br>윤소정은 매일 발가벗고 글을 썼습니다.<br>사람이 어떻게 성장하는지,<br>그 샘플이 필요했거든요.</p>
+    <p><strong>생각구독이 처음이라면,</strong></p>
+    <p><strong>①&nbsp;&nbsp;윤소정의 생각</strong> — Best · 여기서부터 읽으세요<br>
+       <strong>②&nbsp;&nbsp;최근 6개월의 생각</strong><br>
+       <strong>③&nbsp;&nbsp;20대에서 40대까지, 80번의 진화 과정</strong></p>
+  </div>
+  <p class="meta-desc">다듬은 곳: <code>"생각을 바꿀 수 있다면?"</code>(질문) → <code>"생각을 바꿀 수 있다면."</code>(변화의 조건 단언)으로 후크 3줄을 닫음.</p>
+
+  <div class="page-footer"><span>윤소정 사이트 개편</span><span>생각의 페이스메이커</span></div>
+</div>
+
+<!-- PAGE 4 — 마디4 구독 + 다음 과제 -->
+<div class="page">
+  <div class="page-header"><div class="page-brand">HOME COPY · 4기둥</div><div class="page-number">04 / 04</div></div>
+
+  <div class="section-number">마디 4</div>
+  <h2 class="section-title">구독하는 <em>방법</em></h2>
+  <p class="meta-desc">결: 마음(감성)이 아닌 정보. 단 파는 말투 X — 안내체. 가격은 HOME에 노출 안 함 → <code>[생각구독 알림 신청]</code> 클릭 후 노출. NO↔YES 대칭 필터.</p>
+
+  <div class="copy"><p class="lead">한 달에 한 번,<br>생각을 함께 업데이트합니다.</p></div>
+
+  <div class="two-col">
+    <div class="copy">
+      <p><strong>① 실시간 비공개 문서</strong></p>
+      <p>매달 말일, A4 80–100장.<br>윤소정의 인사이트, 공부 과정, 자료 —<br>실험과 실패, 성공까지의 결정 과정이<br>날것으로 공유됩니다.</p>
+      <p class="note">메일·문자로 발송</p>
+    </div>
+    <div class="copy">
+      <p><strong>② 비공개 라이브</strong></p>
+      <p>매달 둘째 주 목요일 밤 10시.<br>글로는 전해지지 않는 생각과 에너지를<br>실시간으로 나누며,<br>함께 방향을 맞춰 성장합니다.</p>
+      <p class="note">실시간 참여만 가능</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="copy">
+      <p class="lead">이런 친구는<br>신청하지 마세요.</p>
+      <p>날것의 인사이트라,<br>모두에게 열고 싶지 않아<br>프라이빗한 유료 구독을 선택했습니다.</p>
+      <p>할까 말까 고민된다면,<br>지금은 신청하지 마세요.<br>때가 되어 만나면 훨씬 좋을 거예요.</p>
+    </div>
+    <div class="copy">
+      <p class="lead">친구를 바꿔야 한다면,<br>신청하세요.</p>
+      <p>새로운 생각이 필요할 때는<br>대화하는 상대를 바꿀 때더라고요.</p>
+      <p>누구를 만나고 누구와 대화하는지에 따라<br>삶의 방향이 바뀐다고 믿는다면 —<br>꼭, 함께 생각해요.</p>
+      <p class="note">3개월 이상부터 신청할 수 있어요.<br>최소 세 번은 만나봐야 하니까요.</p>
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-top:1mm;"><span class="copy" style="display:inline-block; border-left:none; background:none; padding:0;"><span class="cta">생각구독 알림 신청</span></span></p>
+
+  <div class="divider"></div>
+  <h3>🔜 다음 과제 (오늘 범위 밖)</h3>
+  <ul>
+    <li><strong>인칭 톤 통일 점검</strong> — 마디1(1인칭 "나는") · 마디2·3(3인칭 "윤소정은") · 마디4(독자 직접 호칭)가 섞임. 의도인지 통일인지 전체 모아 결정.</li>
+    <li><strong>HTML 시안 제작</strong> — <code>trus-design.css</code> 적용</li>
+    <li><strong>리뷰 · 클로징 섹션</strong> — 오늘 6마디에서 보류한 분</li>
+  </ul>
+
+  <div class="page-footer"><span>윤소정 사이트 개편</span><span>생각의 페이스메이커</span></div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-title">한 마디씩,<br><em>끝까지.</em></div>
+  <div class="closing-sub">HOME 카피 4기둥 — 1차 초안 완성</div>
+  <div class="closing-info">2026 · 05 · 25<br>YOUNSOJUNG SITE RENEWAL<br>8마디 훈련</div>
+</div>
+
+</body>
+</html>

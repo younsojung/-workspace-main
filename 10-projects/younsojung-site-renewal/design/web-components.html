@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko" data-page-id="TRUS">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRUS 웹·인터랙션 레이어 — Stripe Press 학습본</title>
+<link rel="stylesheet" href="trus-design.css">
+<style>
+  /* 데모 전용 보조(시스템 토큰 외) */
+  body { padding-bottom: 120px; }
+  .demo-nav { display:flex; gap:32px; align-items:center; }
+  .demo-row { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-top:24px; }
+  .demo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:24px; }
+  .label { font-size:var(--text-s); letter-spacing:.1em; text-transform:uppercase;
+           color:var(--gray-500); margin-bottom:4px; }
+  .swatch { display:flex; gap:0; border:1px solid var(--ink); margin-top:24px; }
+  .swatch > div { flex:1; height:88px; display:flex; align-items:flex-end; padding:8px;
+                  font-size:var(--text-s); }
+  .ph { background:var(--gray-100); aspect-ratio:3/4; display:flex; align-items:center;
+        justify-content:center; color:var(--gray-500); font-size:var(--text-s); }
+  .note { font-size:var(--text-s); color:var(--gray-500); margin-top:8px; }
+</style>
+</head>
+<body>
+
+<header class="container section" style="padding-bottom:var(--space-6);">
+  <div class="demo-nav">
+    <span class="t-m" style="font-weight:700;">TRUS</span>
+    <a class="hover-label"><span>●</span><span class="hover-label__text" style="margin-left:8px;">생각구독</span></a>
+    <a class="hover-label"><span>●</span><span class="hover-label__text" style="margin-left:8px;">소울정</span></a>
+    <span style="margin-left:auto;"><a href="#" class="btn btn-ghost">소개</a></span>
+  </div>
+  <p class="note">↑ 점에 마우스를 올리면 라벨이 미끄러져 나옵니다 (Stripe 메뉴 패턴)</p>
+</header>
+
+<section class="container reading rise">
+  <p class="label">웹·인터랙션 레이어</p>
+  <h1 class="t-display">큰 글씨로 외치지 않는다.<br class="pc">절제·호흡·여백으로 읽히게 만든다.</h1>
+  <p class="body-flow" style="margin-top:24px;">
+    이 페이지는 Stripe Press에서 학습한 버튼·웹·모션 디자인을 TRUS 색과 폰트 그대로 입혀 본 것이다.
+    폰트는 제목과 라벨에 Pretendard, 흐르는 본문에 명조를 쓰고, 색은 잉크 블랙과 화이트에 핑크를 5% 미만으로만 둔다.
+    Stripe에서 가져온 것은 모양이 아니라 태도다. 그림자를 쓰지 않고 1px 선으로 경계를 긋고,
+    움직임은 두 개의 곡선으로만 절제하며, 강조는 채움과 외곽선의 반전으로 만든다.
+  </p>
+  <p class="note">이 문단을 드래그해 보세요 — 선택 영역이 잉크↔화이트로 반전됩니다.</p>
+</section>
+
+<section class="container section">
+  <hr class="rule-accent">
+  <h2 class="t-l" style="margin-top:16px;">버튼</h2>
+  <div class="demo-row">
+    <a href="#" class="btn btn-primary">신청하기</a>
+    <a href="#" class="btn btn-secondary">자세히 보기</a>
+    <a href="#" class="btn btn-ghost">나중에</a>
+  </div>
+  <p class="note">
+    마우스를 올리면 채움↔외곽선이 반전됩니다(이징 <code>cubic-bezier(.4,0,.2,1)</code>).
+    키보드 <kbd>Tab</kbd>으로 포커스하면 핑크 링이 뜹니다(클릭 땐 안 뜸). 터치 기기에선 hover 대신 누르는 순간 반응합니다.
+  </p>
+</section>
+
+<section class="container section">
+  <hr class="rule-accent">
+  <h2 class="t-l" style="margin-top:16px;">카드 — 정적 vs 인터랙티브</h2>
+  <div class="demo-grid">
+    <div class="card">
+      <p class="label">정적 카드</p>
+      <p class="t-m" style="font-weight:600;">움직이지 않음</p>
+      <p class="t-s" style="margin-top:8px;">hairline 보더만. 그림자 없음.</p>
+    </div>
+    <div class="card card-interactive">
+      <p class="label">인터랙티브</p>
+      <p class="t-m" style="font-weight:600;">올리면 잉크 반전</p>
+      <p class="t-s" style="margin-top:8px;">Stripe BookZine CTA식. <span class="accent">핑크</span>는 반전 후에도 핑크.</p>
+    </div>
+    <div class="card card-interactive">
+      <p class="label">생각구독 81호</p>
+      <p class="t-m" style="font-weight:600;">이번 달의 질문</p>
+      <p class="t-s" style="margin-top:8px;">카드 전체가 클릭 영역.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <hr class="rule-accent">
+  <h2 class="t-l" style="margin-top:16px;">액자 이미지 · 인용</h2>
+  <div class="demo-grid">
+    <div>
+      <div class="ph framed">표지 이미지<br>(1px 보더만)</div>
+      <p class="note">Stripe 책표지처럼 hairline 액자. 그림자 ❌.</p>
+    </div>
+    <div style="grid-column:span 2;">
+      <blockquote class="pullquote">일은 시작과 끝이 있다.<br class="pc">끝을 먼저 그리면 시작이 쉬워진다.</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <hr class="rule-accent">
+  <h2 class="t-l" style="margin-top:16px;">색 · 모션</h2>
+  <div class="swatch">
+    <div style="background:var(--trus-black); color:#fff;">BLACK #121212</div>
+    <div style="background:var(--trus-white); color:#121212;">WHITE #FFFFFF</div>
+    <div style="background:var(--educate-pink); color:#fff;">PINK #D84D8D · 5%↓</div>
+  </div>
+  <p class="note">
+    모션은 두 곡선만: 등장 <code>cubic-bezier(.16,1,.3,1)</code> · 전환 <code>cubic-bezier(.4,0,.2,1)</code>.
+    이 페이지 진입 시 제목 블록이 <code>.rise</code>로 떠올랐습니다.
+    OS에서 '동작 줄이기'를 켜면 모든 모션이 멈춥니다(접근성).
+  </p>
+</section>
+
+</body>
+</html>
